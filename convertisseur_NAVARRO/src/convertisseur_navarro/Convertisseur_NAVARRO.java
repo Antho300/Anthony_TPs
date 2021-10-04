@@ -48,8 +48,16 @@ public class Convertisseur_NAVARRO {
        
             
         } else if (utilisateur == 5){
+            Kelvin = nb1;
+            Fahrenheit = KelvinVersFarenheit(Kelvin);
+            System.out.println(Kelvin + " K est égal à " + Fahrenheit + " °F.");
+       
             
         } else if (utilisateur == 6){
+            Fahrenheit = nb1;
+            Kelvin = FarenheitVersKelvin(Fahrenheit);
+            System.out.println(Fahrenheit + " °F est égal à " + Kelvin + " K.");
+       
             
         } else {
             System.out.println("Désolé, je n'ai pas compris...");
@@ -65,6 +73,11 @@ public class Convertisseur_NAVARRO {
     public static double CelciusVersKelvin(double TempCelcius){
         double kelvin = TempCelcius + 273.15;
         return kelvin;
+    }
+    
+    public static double KelvinVersCelcius(double TempKelvin){
+        double celcius = TempKelvin - 273.15;
+        return celcius;
     }
     
     public static double FarenheitVersCelcius(double TempFarenheit){
