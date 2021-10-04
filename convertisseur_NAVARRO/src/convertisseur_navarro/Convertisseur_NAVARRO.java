@@ -21,7 +21,7 @@ public class Convertisseur_NAVARRO {
         System.out.println("\n Entrer un nombre :");
         nb1 = sc.nextDouble();
         System.out.println("Voici votre nombre : " + nb1);
-        Kelvin = nb1 + 273.15;
+        Kelvin = CelciusVersKelvin(nb1);
         System.out.println("Voici votre température en Kelvin : " + Kelvin);
         
         
@@ -30,4 +30,24 @@ public class Convertisseur_NAVARRO {
     
     }
     
+    
+    public static double CelciusVersKelvin(double TempCelcius){
+        double kelvin = TempCelcius + 273.15;
+        return kelvin;
+    }
+    
+    public static double FarenheitVersCelcius(double TempFarenheit){
+        double celcius = (TempFarenheit - 32) / 1.8;
+        return celcius;
+    }
+    
+    public static double CelciusVersFarenheit(double TempCelcius){
+        double farenheit = TempCelcius * (9/5) + 32;
+        return farenheit;
+    }
+    
+    public static double KelvinVersFarenheit(double TempKelvin){
+        double farenheit = (TempKelvin - 273.15) * 1.8 + 32 ;
+        return farenheit;
+    }
 }
