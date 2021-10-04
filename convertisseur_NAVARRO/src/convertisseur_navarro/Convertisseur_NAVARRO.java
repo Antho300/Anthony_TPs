@@ -16,11 +16,13 @@ public class Convertisseur_NAVARRO {
     public static void main(String[] args) {
         
         double nb1;
+        double Kelvin;
         Scanner sc = new Scanner(System.in);
         System.out.println("\n Entrer un nombre :");
         nb1 = sc.nextDouble();
-        System.out.println(nb1);
-        
+        System.out.println("Voici votre nombre : " + nb1);
+        Kelvin = nb1 + 273.15;
+        System.out.println("Voici votre température en Kelvin : " + Kelvin);
         
         
         
