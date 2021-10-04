@@ -16,13 +16,44 @@ public class Convertisseur_NAVARRO {
     public static void main(String[] args) {
         
         double nb1;
+        int utilisateur;
         double Kelvin;
+        double Celcius;
+        double Fahrenheit;
         Scanner sc = new Scanner(System.in);
-        System.out.println("\n Entrer un nombre :");
+        System.out.println("\nBonjour, saisissez une valeur :");
         nb1 = sc.nextDouble();
-        System.out.println("Voici votre nombre : " + nb1);
-        Kelvin = CelciusVersKelvin(nb1);
-        System.out.println("Voici votre température en Kelvin : " + Kelvin);
+        System.out.println("\nSaisissez la conversion que vous souhaitez effectuer :\n1) De Celcius vers Kelvin\n2) De Kelvin vers Celcius\n3) De Fahrenheit vers Celcius\n4) De Celcius vers Fahrenheit\n5) De Kelvin vers Fahrenheit\n6) De Fahrenheit vers Kelvin");
+        utilisateur = sc.nextInt();
+        System.out.println("Voici votre choix : " + utilisateur);
+        
+        if (utilisateur == 1){
+            Celcius = nb1;
+            Kelvin = CelciusVersKelvin(Celcius);
+            System.out.println(Celcius + " °C est égal à " + Kelvin + " K.");
+        } else if (utilisateur == 2){
+            Kelvin = nb1;
+            Celcius = KelvinVersCelcius(Kelvin);
+            System.out.println(Kelvin + " K est égal à " + Celcius + " °C.");
+       
+        } else if (utilisateur == 3){
+            Fahrenheit = nb1;
+            Celcius = FarenheitVersCelcius(Fahrenheit);
+            System.out.println(Fahrenheit + " °F est égal à " + Celcius + " °C.");
+       
+        } else if (utilisateur == 4){
+            Celcius = nb1;
+            Fahrenheit = CelciusVersFarenheit(Celcius);
+            System.out.println(Celcius + " °C est égal à " + Fahrenheit + " °F.");
+       
+            
+        } else if (utilisateur == 5){
+            
+        } else if (utilisateur == 6){
+            
+        } else {
+            System.out.println("Désolé, je n'ai pas compris...");
+        }
         
         
         
@@ -49,5 +80,10 @@ public class Convertisseur_NAVARRO {
     public static double KelvinVersFarenheit(double TempKelvin){
         double farenheit = (TempKelvin - 273.15) * 1.8 + 32 ;
         return farenheit;
+    }
+    
+    public static double FarenheitVersKelvin(double TempFarenheit){
+        double kelvin = (TempFarenheit - 32) / 1.8 + 273.15 ;
+        return kelvin;
     }
 }
