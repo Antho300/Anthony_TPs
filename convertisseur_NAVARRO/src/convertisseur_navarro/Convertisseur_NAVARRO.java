@@ -81,12 +81,12 @@ public class Convertisseur_NAVARRO {
     }
     
     public static double FarenheitVersCelcius(double TempFarenheit){
-        double celcius = (TempFarenheit - 32) / 1.8;
+        double celcius = (TempFarenheit - 32) * 5/9;
         return celcius;
     }
     
     public static double CelciusVersFarenheit(double TempCelcius){
-        double farenheit = TempCelcius * (9/5) + 32;
+        double farenheit = TempCelcius * 9/5 + 32;
         return farenheit;
     }
     
