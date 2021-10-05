@@ -30,6 +30,15 @@ public class GuessMyNumber_NAVARRO {
         int n = generateurAleat.nextInt(100);
         int utilisateur = 101;
         int tentative = 0;
+        int mode = 0;
+        
+        while (mode < 1 || mode > 4){
+            System.out.println("Choisissez votre mode de difficulté :\n1 = Facile\n2 = Normal\n3 = Difficile\n4 = Cauchemar");
+            Scanner sc2 = new Scanner(System.in);
+            mode = sc2.nextInt();
+        }
+       
+        
         while (utilisateur != n){
             tentative += 1;
             System.out.println("Saisissez un nombre entre 0 et 100 uniquement.");
