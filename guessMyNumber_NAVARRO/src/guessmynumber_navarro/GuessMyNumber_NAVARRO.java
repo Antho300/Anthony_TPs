@@ -27,8 +27,8 @@ public class GuessMyNumber_NAVARRO {
         //n = generateurAleat.nextInt(100);
         //System.out.println(n);
         
-        int n = generateurAleat.nextInt(100);
-        int cauchemar = generateurAleat.nextInt(100);
+        int n = generateurAleat.nextInt(101);
+        int cauchemar = generateurAleat.nextInt(101);
         int utilisateur = 101;
         int tentative = 0;
         int mode = 0;
@@ -99,7 +99,7 @@ public class GuessMyNumber_NAVARRO {
             System.out.println("Attention, vous avez selectionné le mode 'cauchemar', vous n'avez aucune aide d'intervalle.");
             
             while (utilisateur != n){
-            proba = generateurAleat.nextInt(100);
+            proba = generateurAleat.nextInt(101);
             tentative += 1;
             System.out.println("Saisissez un nombre entre 0 et 100 uniquement.");
             Scanner sc = new Scanner(System.in);
