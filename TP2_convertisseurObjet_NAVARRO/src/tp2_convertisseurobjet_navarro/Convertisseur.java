@@ -6,10 +6,12 @@ package tp2_convertisseurobjet_navarro;
  * @author Anthony
  */
 public class Convertisseur {
-    
-    public Convertisseur () {
-        int nbConversions = 0;
-    }
+  
+    int nbConversions;
+            
+    // public Convertisseur () {
+         // nbConversions = 0;
+    // }
     
     public void CelciusVersKelvin (double Celcius) {
         double TempCelcius = Celcius;
@@ -53,7 +55,7 @@ public class Convertisseur {
     
     @Override
     public String toString () {
-        return "nb de conversions"+ nbConversions;
+        return "nb de conversions : "+ nbConversions;
     }
 
     
