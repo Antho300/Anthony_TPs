@@ -10,4 +10,14 @@ package tp2_manip_navarro;
  */
 public class Moussaka {
     
+    int nbCalories;
+    
+    public Moussaka(int Calories){
+        nbCalories = Calories;
+    }
+    
+    
+    
+    
+    
 }

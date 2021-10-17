@@ -10,4 +10,15 @@ package tp2_manip_navarro;
  */
 public class Tartiflette {
     
+    int nbCalories;
+    
+    public Tartiflette (int Calories){
+        nbCalories = Calories;
+    }
+    
+    
+    
+    
+    
+    
 }
