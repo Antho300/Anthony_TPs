@@ -12,6 +12,25 @@ public class Personne {
     
     String nom;
     String prenom;
+    int nbVoitures ;
+    Voiture [] liste_voitures ;
+
+    
+    public Personne (String nom1, String prenom1){
+        nom = nom1;
+        prenom = prenom1;
+        liste_voitures = new Voiture [3] ;
+        nbVoitures = 0;
+    }
+    
+    
+    @Override
+    public String toString() {
+        String chaine_a_retourner;
+        chaine_a_retourner = nom + prenom;
+        
+        return chaine_a_retourner ;
+    }   
     
     
     
