@@ -10,4 +10,10 @@ package tp2_relation_1_navarro;
  */
 public class Personne {
     
+    String nom;
+    String prenom;
+    
+    
+    
+    
 }

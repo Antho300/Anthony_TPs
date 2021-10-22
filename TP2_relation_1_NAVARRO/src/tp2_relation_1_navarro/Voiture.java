@@ -10,4 +10,15 @@ package tp2_relation_1_navarro;
  */
 public class Voiture {
     
+    String Modele;
+    String Marque;
+    int PuissanceCV;
+    
+    public Voiture (String Modele1, String Marque1, int Puissance) {
+        Modele = Modele1;
+        Marque = Marque1;
+        PuissanceCV = Puissance;
+    }
+    
+    
 }
