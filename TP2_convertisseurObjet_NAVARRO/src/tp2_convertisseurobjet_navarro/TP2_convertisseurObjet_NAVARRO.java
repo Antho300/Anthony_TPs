@@ -51,6 +51,7 @@ public class TP2_convertisseurObjet_NAVARRO {
                 convertisseur.FarenheightVersKelvin(nb1);
 
             } else if (utilisateur == 7) {
+                System.out.println("Fin du Programme...");
                 break;
 
             } else {
