@@ -58,7 +58,7 @@ public class TP2_convertisseurObjet_NAVARRO {
                 continue;
             }
 
-            convertisseur.nbConversions += 1;
+            
             
             
             
