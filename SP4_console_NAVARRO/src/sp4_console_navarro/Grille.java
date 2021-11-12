@@ -1,11 +1,10 @@
-// Classe Jeton
+// Classe Grille
 package sp4_console_navarro;
 
 /**
  *
  * @author Anthony
  */
-public class Jeton {
+public class Grille {
     
-    String Couleur;
 }
