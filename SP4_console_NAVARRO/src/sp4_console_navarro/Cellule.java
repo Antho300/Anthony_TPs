@@ -12,4 +12,13 @@ class Cellule {
     
     
     
+    public Cellule(){
+        jetonCourant = null;
+    }
+    
+    public boolean affecterJeton(Jeton v)
+    
+    
+    
+    
 }
