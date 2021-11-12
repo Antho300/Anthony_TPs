@@ -9,7 +9,7 @@ public class Joueur {
     String Nom;
     String Couleur;
     Jeton [] ListeJetons= new Jeton [21];
-    Jeton nombreJetonsRestants;
+    int nombreJetonsRestants;
     
     public Joueur (String nom){
         Nom = nom;
@@ -19,9 +19,9 @@ public class Joueur {
         Couleur = couleur;
     }
     
-    public boolean ajouterJeton(Jeton){
-        
-        ListeJetons[21 - nombreJetonsRestants] = Jeton;
+    public boolean ajouterJeton(Jeton n){
+        int position = 21 - nombreJetonsRestants;
+        ListeJetons[position] = n;
         
     }
     

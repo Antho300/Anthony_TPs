@@ -8,4 +8,9 @@ package sp4_console_navarro;
 public class Jeton {
     
     String Couleur;
+    
+    public Jeton (String couleur){
+        Couleur = couleur;
+    }
 }
+
