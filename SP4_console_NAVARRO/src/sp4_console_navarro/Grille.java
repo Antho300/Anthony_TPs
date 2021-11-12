@@ -7,4 +7,8 @@ package sp4_console_navarro;
  */
 public class Grille {
     
+    // Cellule [6][7] CellulesJeu;
+    
+    
+    
 }

@@ -8,5 +8,5 @@ package sp4_console_navarro;
 public class Joueur {
     String Nom;
     String Couleur;
-    
+    int [] ListeJetons= new int [21];
 }
