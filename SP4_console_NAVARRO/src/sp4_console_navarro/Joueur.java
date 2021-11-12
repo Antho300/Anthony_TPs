@@ -8,5 +8,21 @@ package sp4_console_navarro;
 public class Joueur {
     String Nom;
     String Couleur;
-    int [] ListeJetons= new int [21];
+    Jeton [] ListeJetons= new Jeton [21];
+    Jeton nombreJetonsRestants;
+    
+    public Joueur (String nom){
+        Nom = nom;
+    }
+    
+    public void affecterCouleur (String couleur){
+        Couleur = couleur;
+    }
+    
+    public boolean ajouterJeton(Jeton){
+        
+        ListeJetons[21 - nombreJetonsRestants] = Jeton;
+        
+    }
+    
 }
