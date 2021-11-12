@@ -20,16 +20,18 @@ public class Joueur {
     }
     
     public boolean ajouterJeton(Jeton n){
-        for (int i = 0; i < 21; i++){
-            if (ListeJetons[i] == null){
-                ListeJetons[i] = n;
-                return true;
+        if (ListeJetons [20] != null){
+            return false;
+        } else {
+            for (int i = 0; i < 21; i++){
+                if (ListeJetons[i] == null){
+                    ListeJetons[i] = n;
+                    return true;
                 
-            } else {
-                continue;
+                
+                }   
             }
         }
-        return true;
         
     }
     
