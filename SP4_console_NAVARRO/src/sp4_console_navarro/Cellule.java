@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+// Classe Cellule
 package sp4_console_navarro;
 
 /**
@@ -9,5 +6,10 @@ package sp4_console_navarro;
  * @author Anthony
  */
 class Cellule {
+    
+    Jeton jetonCourant;
+    
+    
+    
     
 }
