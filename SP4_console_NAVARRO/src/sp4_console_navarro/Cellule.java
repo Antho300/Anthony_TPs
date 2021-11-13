@@ -28,8 +28,8 @@ class Cellule {
     
     public String lireCouleurDuJeton(){
         if (jetonCourant != null){
-            lireCouleur();
-            return jetonCourant;
+            String couleur = jetonCourant.lireCouleur();
+            return couleur;
             
         }else{
             return "vide";
