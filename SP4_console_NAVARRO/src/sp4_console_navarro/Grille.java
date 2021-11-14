@@ -49,7 +49,13 @@ public class Grille {
         return true; // Ca return true même si ça a déja return le false avant?
     }
     
-    
+    public void viderGrille(){
+        for (int i = 0; i < 6; i++){
+            for (int j = 0; j < 7; j++){
+                CellulesJeu [i][j] = null;
+            }
+        }
+    }
     
     
     
