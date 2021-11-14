@@ -8,7 +8,7 @@ package sp4_console_navarro;
 public class Joueur {
     String Nom;
     String Couleur;
-    Jeton [] ListeJetons= new Jeton [21];
+    Jeton [] ListeJetons = new Jeton [21];
     int nombreJetonsRestants;
     
     public Joueur (String nom){
