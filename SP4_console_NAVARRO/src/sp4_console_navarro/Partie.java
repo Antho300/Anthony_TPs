@@ -8,9 +8,17 @@ package sp4_console_navarro;
 public class Partie {
     
     Joueur [] ListeJoueurs = new Joueur [2];
+    Joueur joueurCourant;
+    Grille grilleJeu;
     
+    public void attribuerCouleursAuxJoueurs(){
+        ListeJoueurs[0].affecterCouleur("Rouge");
+        ListeJoueurs[1].affecterCouleur("Jaune");
+        
+    }
     
-    
-    
+    public void initialiserPartie(){
+        
+    }
     
 }
