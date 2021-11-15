@@ -19,7 +19,10 @@ public class Partie {
     
     public void initialiserPartie(){
       grilleJeu = new Grille();
-      
+      Jeton jeton1 = new Jeton("Rouge");
+      Jeton jeton2 = new Jeton("Jaune");
+      ListeJoueurs[0].ajouterJeton(jeton1);
+      ListeJoueurs[1].ajouterJeton(jeton2);
     }
     
 }
