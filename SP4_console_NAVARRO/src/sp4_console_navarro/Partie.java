@@ -18,7 +18,8 @@ public class Partie {
     }
     
     public void initialiserPartie(){
-      Grille grille = new Grille();
+      grilleJeu = new Grille();
+      
     }
     
 }
