@@ -7,7 +7,7 @@ package sp4_console_navarro;
  */
 public class Grille {
     
-    Cellule [][] CellulesJeu = new Cellule [6][7];
+    Cellule [][] CellulesJeu;
         
     public Grille(){
         Cellule [][] CellulesJeu = new Cellule [6][7];
@@ -66,6 +66,91 @@ public class Grille {
         }
     }
     
+    
+    public boolean celluleOccupee(int ligne, int col){ 
+    if (CellulesJeu[ligne][col].jetonCourant == null){
+        return false;
+    }
+    else{
+        return true;
+    }
+    
+    }
+    
+    public String lireCouleurDuJeton(int ligne , int col){
+        CellulesJeu[ligne][col].lireCouleurDuJeton();
+        return "";
+    }
+    
+    public boolean etreGagnantePourJoueur(Joueur unJoueur){
+        
+        String uneCouleur = unJoueur.Couleur; //lit la couleur à chercher
+        
+        //test ligne gagnante
+        for (int c=0; c<4; c++){
+            for (int l=0; l<6; l++){ //couvre les cases de départ 
+                
+                for (int i=0; i<4; i++){ //lecture des 4 cases voisines à la case de départ
+                    if (!lireCouleurDuJeton(l,c+i).equals(uneCouleur)){
+                        break;
+                    }
+                    else{
+                        if (i==3 && lireCouleurDuJeton(l,c+i).equals(uneCouleur) )//si il a atteint la dernière case
+                            return true;
+                    }
+                }
+            }
+        }
+        
+        //test colonne gagnante
+        for (int c=0; c<7; c++){
+            for(int l=0; l<4; l++){
+                for (int i=0; i<4; i++){ //lecture des 4 cases voisines à la case de départ
+                    if (!lireCouleurDuJeton(l+i,c).equals(uneCouleur)){
+                        break;
+                    }
+                    else{
+                        if (i==3 && lireCouleurDuJeton(l+i,c).equals(uneCouleur) )//si il a atteint la dernière case
+                            return true;
+                    }
+                }
+                
+            }
+        }
+        
+        //test diagonale haute/droite gagnante
+        for (int c=0; c<4; c++){
+            for(int l=0; l<3; l++){
+                for (int i=0; i<4; i++){ //lecture des 4 cases voisines à la case de départ
+                    if (!lireCouleurDuJeton(l+i,c+i).equals(uneCouleur)){
+                        break;
+                    }
+                    else{
+                        if (i==3 && lireCouleurDuJeton(l+i,c+i).equals(uneCouleur) )//si il a atteint la dernière case
+                            return true;
+                    }
+                }   
+            }
+        }
+        
+        //test diagonale basse/droite gagnante
+        for (int c=0; c<4; c++){
+            for(int l=3; l<6; l++){
+                for (int i=0; i<4; i++){ //lecture des 4 cases voisines à la case de départ
+                    if (!lireCouleurDuJeton(l-i,c+i).equals(uneCouleur)){
+                        break;
+                    }
+                    else{
+                        if (i==3 && lireCouleurDuJeton(l-i,c+i).equals(uneCouleur) )//si il a atteint la dernière case
+                            return true;
+                    }
+                }   
+            }
+        }
+        
+        return false; // non gagnant
+    }
+
     
     public boolean colonneRemplie(int colonne){
         int c = colonne;
