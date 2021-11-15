@@ -10,7 +10,7 @@ public class Grille {
     Cellule [][] CellulesJeu = new Cellule [6][7];
         
     public Grille(){
-        
+        Cellule [][] CellulesJeu = new Cellule [6][7];
     }
     
     
