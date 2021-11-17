@@ -12,7 +12,7 @@ public class SP4_console_NAVARRO {
      */
     public static void main(String[] args) {
         
-        Jeton j = new Jeton("rouge"); // Tester les classes
+        Jeton j = new Jeton("Jaune"); // Tester les classes
         // System.out.println(j.lireCouleur());
         
         Cellule c = new Cellule();
@@ -23,6 +23,9 @@ public class SP4_console_NAVARRO {
         // g.afficherGrilleSurConsole();
         g.ajouterJetonDansColonne(j, 5);
         g.afficherGrilleSurConsole();
+        
+        Jeton j1 = new Jeton("Jaune");
+        g.ajouterJetonDansColonne(j1, 5);
         
         
         

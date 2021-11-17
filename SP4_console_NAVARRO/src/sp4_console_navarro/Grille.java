@@ -24,7 +24,7 @@ public class Grille {
         int colonne = c - 1;
         Jeton j = m;
         
-        for (int i = 5; i >= 0; i--){
+        for (int i = 5; i >= 0; i-=1){
             if (i == 0 && CellulesJeu [i][colonne].jetonCourant != null){
                 return false;
                 
@@ -69,7 +69,7 @@ public class Grille {
             for (int j = 0; j < 7; j++){
                 if(CellulesJeu [i][j].jetonCourant == null){
                     System.out.print("x ");
-                }else if (CellulesJeu [i][j].jetonCourant.lireCouleur() == "Rouge" ){
+                }else if (CellulesJeu [i][j].jetonCourant.lireCouleur() == "rouge" ){
                     System.out.print("R ");
                 }else{
                     System.out.print("J ");
