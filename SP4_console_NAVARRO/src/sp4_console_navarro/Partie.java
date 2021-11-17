@@ -12,8 +12,23 @@ public class Partie {
     Grille grilleJeu;
     
     public void attribuerCouleursAuxJoueurs(){
-        ListeJoueurs[0].affecterCouleur("Rouge");
-        ListeJoueurs[1].affecterCouleur("Jaune");
+        double nb = Math.random();
+        int nb1;
+        int nb2;
+        
+        System.out.println(nb);
+        
+        if (nb >= 0.5){
+            nb1 = 1;
+        }else{
+            nb1 = 0;
+        }
+        
+        nb2 = 1-nb1;
+        
+        
+        ListeJoueurs[nb1].affecterCouleur("Rouge");
+        ListeJoueurs[nb2].affecterCouleur("Jaune");
         
     }
     
@@ -22,8 +37,8 @@ public class Partie {
       
       
       for (int i = 0; i < 21; i++){
-          Jeton jeton1 = new Jeton("Rouge");
-          Jeton jeton2 = new Jeton("Jaune");
+          Jeton jeton1 = new Jeton(ListeJoueurs[0].Couleur);
+          Jeton jeton2 = new Jeton(ListeJoueurs[1].Couleur);
           ListeJoueurs[0].ajouterJeton(jeton1);
           ListeJoueurs[1].ajouterJeton(jeton2);
         
