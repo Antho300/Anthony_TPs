@@ -21,11 +21,11 @@ public class Grille {
     
     
     public boolean ajouterJetonDansColonne(Jeton m, int c){
-        int colonne = c;
+        int colonne = c - 1;
         Jeton j = m;
         
-        for (int i = 0; i < 6; i++){
-            if (i == 5 && CellulesJeu [i][colonne].jetonCourant != null){
+        for (int i = 5; i >= 0; i--){
+            if (i == 0 && CellulesJeu [i][colonne].jetonCourant != null){
                 return false;
                 
             } else if (CellulesJeu [i][colonne].jetonCourant == null){
