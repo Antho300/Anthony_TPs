@@ -8,12 +8,14 @@ package sp4_console_navarro;
 class Cellule {
     
     Jeton jetonCourant;
+    boolean desintegrateur;
     
     
     
     
     public Cellule(){
         jetonCourant = null;
+        desintegrateur = false;
     }
     
     public boolean affecterJeton(Jeton v){
@@ -54,5 +56,14 @@ class Cellule {
         
     }
     
+    public boolean placerDesintegrateur(){
+        if (desintegrateur == false){
+            desintegrateur = true;
+            return true;
+        }else{
+            System.out.println("désintegrateur déjà présent");
+            return false;
+        }
+    }
     
 }
