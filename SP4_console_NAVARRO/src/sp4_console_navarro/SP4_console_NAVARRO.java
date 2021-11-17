@@ -12,29 +12,27 @@ public class SP4_console_NAVARRO {
      */
     public static void main(String[] args) {
         
-        Jeton j = new Jeton("Jaune"); // Tester les classes
+        // Jeton j = new Jeton("Jaune"); // Tester les classes
         // System.out.println(j.lireCouleur());
         
-        Cellule c = new Cellule();
-        System.out.println(c.lireCouleurDuJeton());
-        c.affecterJeton(j);
-        System.out.println(c.lireCouleurDuJeton());
-        Grille g = new Grille();
+        // Cellule c = new Cellule();
+        // System.out.println(c.lireCouleurDuJeton());
+        // c.affecterJeton(j);
+        // System.out.println(c.lireCouleurDuJeton());
+        // Grille g = new Grille();
         // g.afficherGrilleSurConsole();
-        g.ajouterJetonDansColonne(j, 5);
-        g.afficherGrilleSurConsole();
-        
-        Jeton j1 = new Jeton("Jaune");
-        g.ajouterJetonDansColonne(j1, 5);
+        // g.ajouterJetonDansColonne(j, 5);
+        // g.afficherGrilleSurConsole();
         
         
         
-        //Joueur joueur1 = new Joueur("joueur1");
-        //Joueur joueur2 = new Joueur("joueur2");
         
-        //Partie partie = new Partie(joueur1 , joueur2);
+        Joueur joueur1 = new Joueur("joueur1");
+        Joueur joueur2 = new Joueur("joueur2");
         
-        //partie.initialiserPartie();
+        Partie partie = new Partie(joueur1 , joueur2);
+        
+        partie.initialiserPartie();
         // partie
         
         
