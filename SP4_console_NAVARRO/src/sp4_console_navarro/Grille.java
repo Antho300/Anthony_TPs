@@ -10,7 +10,13 @@ public class Grille {
     Cellule [][] CellulesJeu;
         
     public Grille(){
-        Cellule [][] CellulesJeu = new Cellule [6][7];
+        CellulesJeu = new Cellule [6][7];
+        
+        for (int i = 0 ; i < 6 ; i++){
+            for (int j = 0 ; j < 7 ; j++){
+                CellulesJeu[i][j] = new Cellule();
+            }
+        }
     }
     
     
