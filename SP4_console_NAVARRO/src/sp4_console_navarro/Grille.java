@@ -67,7 +67,14 @@ public class Grille {
         for (int i = 0; i < 6; i++){
             System.out.println("");
             for (int j = 0; j < 7; j++){
-                System.out.print(CellulesJeu [i][j].jetonCourant + " ");
+                if(CellulesJeu [i][j].jetonCourant == null){
+                    System.out.print("x ");
+                }else if (CellulesJeu [i][j].jetonCourant.lireCouleur() == "Rouge" ){
+                    System.out.print("R ");
+                }else{
+                    System.out.print("J ");
+                }
+                
             }
         }
     }
