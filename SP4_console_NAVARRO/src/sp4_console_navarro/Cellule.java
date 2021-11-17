@@ -66,4 +66,28 @@ class Cellule {
         }
     }
     
+    public boolean presenceDesintegrateur(){
+        if (desintegrateur == true){
+            return true;
+            
+        }else{
+            return false;
+            
+        }
+        
+    }
+    
+    public boolean recupererDesintegrateur(){
+        if (desintegrateur == true){
+            desintegrateur = false;
+            return true;
+            
+        }else{
+            return false;
+            
+        }
+        
+    }
+    
+    
 }
