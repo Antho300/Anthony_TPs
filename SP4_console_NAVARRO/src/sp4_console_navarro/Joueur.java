@@ -43,4 +43,12 @@ public class Joueur {
         
     }
     
+    
+    public boolean utiliserDesintegrateur(){
+        
+        
+        
+        
+    }
+    
 }
