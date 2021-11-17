@@ -38,9 +38,11 @@ class Cellule {
     }
     
     public Jeton recupererJeton(){
-        
         return jetonCourant;
+        
     }
+    
+    
     
     
 }
