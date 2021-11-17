@@ -83,6 +83,7 @@ class Cellule {
             return true;
             
         }else{
+            System.out.println("Aucun désintegrateur présent");
             return false;
             
         }
