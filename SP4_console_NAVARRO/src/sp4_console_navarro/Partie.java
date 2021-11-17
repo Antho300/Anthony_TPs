@@ -11,6 +11,16 @@ public class Partie {
     Joueur joueurCourant;
     Grille grilleJeu;
     
+    public Partie (Joueur joueur1 , Joueur joueur2){
+        
+        Joueur j1 = joueur1;
+        Joueur j2 = joueur2;
+        
+        ListeJoueurs[0] = j1;
+        ListeJoueurs[1] = j2;
+     
+}
+    
     public void attribuerCouleursAuxJoueurs(){
         double nb = Math.random();
         int nb1;

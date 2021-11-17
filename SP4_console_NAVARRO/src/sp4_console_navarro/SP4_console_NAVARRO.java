@@ -15,7 +15,7 @@ public class SP4_console_NAVARRO {
         Joueur joueur1 = new Joueur("joueur1");
         Joueur joueur2 = new Joueur("joueur2");
         
-        
+        Partie partie = new Partie();
         
         
         
