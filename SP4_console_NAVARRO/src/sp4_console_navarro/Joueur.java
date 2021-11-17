@@ -45,8 +45,16 @@ public class Joueur {
     
     
     public boolean utiliserDesintegrateur(){
+        if (nombreDesintegrateurs > 0){
+            nombreDesintegrateurs -= 1;
+            return true;
+            
+        }else{
+            return false;
+            
+        }
         
-        
+       
         
         
     }
