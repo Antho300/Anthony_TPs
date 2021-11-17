@@ -39,10 +39,21 @@ class Cellule {
     
     public Jeton recupererJeton(){
         return jetonCourant;
-        
     }
     
-    
+    public boolean supprimerJeton(){
+        if (jetonCourant == null){
+            System.out.println("Pas de jeton présent");
+            return false;
+            
+        }else{
+            jetonCourant = null;
+            return true;
+            
+        }
+        
+        
+    }
     
     
 }
