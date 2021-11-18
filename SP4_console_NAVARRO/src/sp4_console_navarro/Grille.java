@@ -231,13 +231,9 @@ public class Grille {
         
         return reference;
     }
-        
-        
-      
-        
-        
-        
-        
+    
+    
+    
     }
     
     
@@ -246,5 +242,4 @@ public class Grille {
         
     
     
-    
-}
+   
