@@ -80,13 +80,16 @@ public class Grille {
     }
     
     
-    public boolean celluleOccupee(int ligne, int col){ 
-    if (CellulesJeu[ligne][col].jetonCourant == null){
-        return false;
-    }
-    else{
-        return true;
-    }
+    public boolean celluleOccupee(int ligne, int col){
+        int l = ligne - 1;
+        int c = col - 1;
+        
+        if (CellulesJeu[ligne][col].jetonCourant == null){
+            return false;
+        }
+        else{
+            return true;
+        }
     
     }
     
@@ -166,7 +169,7 @@ public class Grille {
 
     
     public boolean colonneRemplie(int colonne){
-        int c = colonne;
+        int c = colonne - 1;
         for (int i =0; i < 6; i++){
             if (CellulesJeu [i][c].jetonCourant == null){
                 return false;
@@ -176,6 +179,71 @@ public class Grille {
         
     }
     
+    public void tasserGrille(int colonne){
+        int c = colonne - 1;
+        
+        for (int i = 0; i <5; i++){
+            CellulesJeu [i][c].jetonCourant = CellulesJeu [i+1][c].jetonCourant;
+            
+        }
+        
+        CellulesJeu [5][c].jetonCourant = null;
+   
+    }
+    
+    public boolean placerDesintegrateur (int l, int c){
+        int l1 = l-1;
+        int c1 = c-1;
+        
+        if (CellulesJeu [l1][c1].placerDesintegrateur() == true){
+            CellulesJeu [l1][c1].desintegrateur = true;
+            return true;
+        }else{
+            System.out.println("Désintegrateur déjà présent");
+            return false;
+        }
+       
+    }
+    
+    public boolean supprimerJeton(int l, int c){
+        int l2 = l-1;
+        int c2 = c-1;
+        
+        if (CellulesJeu[l2][c2].jetonCourant == null){
+            System.out.println("Jeton absent");
+            return false;
+        }
+        else{
+            CellulesJeu[l2][c2].jetonCourant = null;
+            return true;
+            
+        }
+          
+    }
+    
+    
+    public Jeton recupererJeton(int l, int c){
+        int l3 = l-1;
+        int c3 = c-1;
+        Jeton reference = CellulesJeu[l3][c3].jetonCourant;
+        
+        CellulesJeu[l3][c3].jetonCourant = null;
+        
+        return reference;
+    }
+        
+        
+      
+        
+        
+        
+        
+    }
+    
+    
+    
+        
+        
     
     
     
