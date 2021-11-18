@@ -9,11 +9,11 @@ public class Jeton {
     
     String Couleur;
     
-    public Jeton (String couleur){
+    Jeton (String couleur){
         Couleur = couleur;
     }
     
-    public String lireCouleur(){
+    String lireCouleur(){
        return Couleur; 
     }
 }

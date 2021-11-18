@@ -13,7 +13,7 @@ class Cellule {
     
     
     
-    public Cellule(){
+    public Cellule(){ // Constructeur qui sera applé dès que l'on cré une cellule.
         jetonCourant = null;
         desintegrateur = false;
     }
