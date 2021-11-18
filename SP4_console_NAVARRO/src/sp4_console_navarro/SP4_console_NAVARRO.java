@@ -33,7 +33,7 @@ public class SP4_console_NAVARRO {
         Partie partie = new Partie(joueur1 , joueur2);
         
         partie.initialiserPartie();
-        // partie
+        partie.debuterPartie();
         
         
         

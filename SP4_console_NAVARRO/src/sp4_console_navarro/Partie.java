@@ -1,6 +1,8 @@
 // Classe Partie
 package sp4_console_navarro;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Anthony
@@ -57,7 +59,7 @@ public class Partie {
     }
     
     public void debuterPartie(){ 
-        
+        int JC = 0;
         Scanner sc = new Scanner(System.in); // permet de prendre les entrées de l'utilisateur
         boolean partieFinie = false;
         String causePartieFinie = "Non déterminée";
@@ -93,12 +95,12 @@ public class Partie {
             
             grilleJeu.afficherGrilleSurConsole();
             
-            System.out.println("C'est à votre tour de placer votre jeton\nEntrez un numéro de colone");
+            System.out.println("\nC'est à votre tour de placer votre jeton\nEntrez un numéro de colone");
             int colonne = sc.nextInt();
             
             boolean placementDispo = grilleJeu.colonneRemplie(colonne);// test si l'emplacement est dispo
             
-            while (placementDispo == false) { // à refaire jusqu'à ce que le choix de colonne soit valide
+            while (placementDispo == true) { // à refaire jusqu'à ce que le choix de colonne soit valide
                System.out.println("Erreur : la colonne " + colonne + " est remplie.\nEntrez un autre numéro de colone"); 
                colonne = sc.nextInt();
                placementDispo = grilleJeu.colonneRemplie(colonne);
