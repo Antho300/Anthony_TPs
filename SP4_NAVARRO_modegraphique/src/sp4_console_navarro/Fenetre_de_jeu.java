@@ -10,17 +10,22 @@ package sp4_console_navarro;
  */
 public class Fenetre_de_jeu extends javax.swing.JFrame {
 
-    Joueur [] ListeJoueurs = new Joueur [2]; // afficher la grille de jeu.
+    Joueur[] ListeJoueurs = new Joueur[2]; // afficher la grille de jeu.
     Joueur joueurCourant;
     Grille grilleJeu = new Grille();
-    
-    
-    
-    
+
     public Fenetre_de_jeu() {
         initComponents();
         panneau_info_joueur.setVisible(false);
         panneau_info_partie.setVisible(false);
+
+        for (int i = 5; i >= 0; i--) {
+            for (int j = 0; j < 7; j++) {
+                CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.CellulesJeu[i][j]);
+                panneau_grille.add(cellGraph);
+
+            }
+        }
     }
 
     /**

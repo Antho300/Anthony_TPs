@@ -4,10 +4,21 @@
 
 package sp4_console_navarro;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author Anthony
  */
-public class CelluleGraphique {
+public class CelluleGraphique extends JButton {
+    Cellule celluleAssociee; // 10'52.
+    
+    public CelluleGraphique (Cellule uneCellule){
+        celluleAssociee = uneCellule;
+         
+    }
+    
+    
+    
     
 }
