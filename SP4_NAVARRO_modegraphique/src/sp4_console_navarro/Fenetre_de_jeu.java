@@ -37,52 +37,58 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
         panneau_grille.setBackground(new java.awt.Color(255, 255, 255));
         panneau_grille.setMaximumSize(new java.awt.Dimension(672, 576));
         panneau_grille.setLayout(new java.awt.GridLayout(6, 7));
-        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 460, 470));
+        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 672, 576));
 
         panneau_info_partie.setBackground(new java.awt.Color(204, 255, 204));
+        panneau_info_partie.setMaximumSize(new java.awt.Dimension(190, 190));
+        panneau_info_partie.setMinimumSize(new java.awt.Dimension(190, 190));
 
         javax.swing.GroupLayout panneau_info_partieLayout = new javax.swing.GroupLayout(panneau_info_partie);
         panneau_info_partie.setLayout(panneau_info_partieLayout);
         panneau_info_partieLayout.setHorizontalGroup(
             panneau_info_partieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 230, Short.MAX_VALUE)
+            .addGap(0, 190, Short.MAX_VALUE)
         );
         panneau_info_partieLayout.setVerticalGroup(
             panneau_info_partieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
+            .addGap(0, 190, Short.MAX_VALUE)
         );
 
-        getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 230, 130));
+        getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 410, 160, 160));
 
         panneau_info_joueur.setBackground(new java.awt.Color(204, 255, 204));
+        panneau_info_joueur.setMaximumSize(new java.awt.Dimension(190, 190));
+        panneau_info_joueur.setMinimumSize(new java.awt.Dimension(190, 190));
 
         javax.swing.GroupLayout panneau_info_joueurLayout = new javax.swing.GroupLayout(panneau_info_joueur);
         panneau_info_joueur.setLayout(panneau_info_joueurLayout);
         panneau_info_joueurLayout.setHorizontalGroup(
             panneau_info_joueurLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 230, Short.MAX_VALUE)
+            .addGap(0, 190, Short.MAX_VALUE)
         );
         panneau_info_joueurLayout.setVerticalGroup(
             panneau_info_joueurLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
+            .addGap(0, 190, Short.MAX_VALUE)
         );
 
-        getContentPane().add(panneau_info_joueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, -1, -1));
+        getContentPane().add(panneau_info_joueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 30, 160, 160));
 
         panneau_creation_partie.setBackground(new java.awt.Color(204, 255, 204));
+        panneau_creation_partie.setMaximumSize(new java.awt.Dimension(190, 190));
+        panneau_creation_partie.setMinimumSize(new java.awt.Dimension(190, 190));
 
         javax.swing.GroupLayout panneau_creation_partieLayout = new javax.swing.GroupLayout(panneau_creation_partie);
         panneau_creation_partie.setLayout(panneau_creation_partieLayout);
         panneau_creation_partieLayout.setHorizontalGroup(
             panneau_creation_partieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 230, Short.MAX_VALUE)
+            .addGap(0, 190, Short.MAX_VALUE)
         );
         panneau_creation_partieLayout.setVerticalGroup(
             panneau_creation_partieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 190, Short.MAX_VALUE)
         );
 
-        getContentPane().add(panneau_creation_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, -1, -1));
+        getContentPane().add(panneau_creation_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 220, 160, 160));
 
         setBounds(0, 0, 1044, 672);
     }// </editor-fold>//GEN-END:initComponents
