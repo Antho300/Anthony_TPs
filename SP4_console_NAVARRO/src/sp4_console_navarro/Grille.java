@@ -195,13 +195,8 @@ public class Grille {
         int l1 = l-1;
         int c1 = c-1;
         
-        if (CellulesJeu [l1][c1].placerDesintegrateur() == true){
-            CellulesJeu [l1][c1].desintegrateur = true;
-            return true;
-        }else{
-            System.out.println("Désintegrateur déjà présent");
-            return false;
-        }
+        return CellulesJeu [l1][c1].placerDesintegrateur();
+       
        
     }
     
@@ -225,7 +220,7 @@ public class Grille {
     public Jeton recupererJeton(int l, int c){
         int l3 = l-1;
         int c3 = c-1;
-        Jeton reference = CellulesJeu[l3][c3].jetonCourant;
+        Jeton reference = CellulesJeu[l3][c3].recupererJeton();
         
         CellulesJeu[l3][c3].jetonCourant = null;
         
