@@ -26,20 +26,65 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panneau_grille = new javax.swing.JPanel();
+        panneau_info_partie = new javax.swing.JPanel();
+        panneau_info_joueur = new javax.swing.JPanel();
+        panneau_creation_partie = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1030, Short.MAX_VALUE)
+        panneau_grille.setBackground(new java.awt.Color(255, 255, 255));
+        panneau_grille.setMaximumSize(new java.awt.Dimension(672, 576));
+        panneau_grille.setLayout(new java.awt.GridLayout(6, 7));
+        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 460, 470));
+
+        panneau_info_partie.setBackground(new java.awt.Color(204, 255, 204));
+
+        javax.swing.GroupLayout panneau_info_partieLayout = new javax.swing.GroupLayout(panneau_info_partie);
+        panneau_info_partie.setLayout(panneau_info_partieLayout);
+        panneau_info_partieLayout.setHorizontalGroup(
+            panneau_info_partieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 230, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 665, Short.MAX_VALUE)
+        panneau_info_partieLayout.setVerticalGroup(
+            panneau_info_partieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
         );
 
-        pack();
+        getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 230, 130));
+
+        panneau_info_joueur.setBackground(new java.awt.Color(204, 255, 204));
+
+        javax.swing.GroupLayout panneau_info_joueurLayout = new javax.swing.GroupLayout(panneau_info_joueur);
+        panneau_info_joueur.setLayout(panneau_info_joueurLayout);
+        panneau_info_joueurLayout.setHorizontalGroup(
+            panneau_info_joueurLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 230, Short.MAX_VALUE)
+        );
+        panneau_info_joueurLayout.setVerticalGroup(
+            panneau_info_joueurLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(panneau_info_joueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, -1, -1));
+
+        panneau_creation_partie.setBackground(new java.awt.Color(204, 255, 204));
+
+        javax.swing.GroupLayout panneau_creation_partieLayout = new javax.swing.GroupLayout(panneau_creation_partie);
+        panneau_creation_partie.setLayout(panneau_creation_partieLayout);
+        panneau_creation_partieLayout.setHorizontalGroup(
+            panneau_creation_partieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 230, Short.MAX_VALUE)
+        );
+        panneau_creation_partieLayout.setVerticalGroup(
+            panneau_creation_partieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(panneau_creation_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, -1, -1));
+
+        setBounds(0, 0, 1044, 672);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -78,5 +123,9 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel panneau_creation_partie;
+    private javax.swing.JPanel panneau_grille;
+    private javax.swing.JPanel panneau_info_joueur;
+    private javax.swing.JPanel panneau_info_partie;
     // End of variables declaration//GEN-END:variables
 }
