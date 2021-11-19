@@ -10,9 +10,13 @@ package sp4_console_navarro;
  */
 public class Fenetre_de_jeu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Fenetre_de_jeu
-     */
+    Joueur [] ListeJoueurs = new Joueur [2]; // afficher la grille de jeu.
+    Joueur joueurCourant;
+    Grille grilleJeu = new Grille();
+    
+    
+    
+    
     public Fenetre_de_jeu() {
         initComponents();
         panneau_info_joueur.setVisible(false);
@@ -210,7 +214,7 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
 
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
         panneau_info_joueur.setVisible(true);
-        panneau_info_joueur.setVisible(true);
+        panneau_info_partie.setVisible(true);
     }//GEN-LAST:event_btn_startActionPerformed
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
