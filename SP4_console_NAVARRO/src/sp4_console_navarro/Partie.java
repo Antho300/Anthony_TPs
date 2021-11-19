@@ -136,12 +136,4 @@ public class Partie {
     }
 
     
-    
-    
-    
-    
-    
-    
-    
-    
 }
