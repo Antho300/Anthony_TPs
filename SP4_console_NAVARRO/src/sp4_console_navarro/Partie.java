@@ -12,6 +12,7 @@ public class Partie {
     Joueur [] ListeJoueurs = new Joueur [2];
     Joueur joueurCourant;
     Grille grilleJeu;
+    int JC = 3;
     
     public Partie (Joueur joueur1 , Joueur joueur2){
         
@@ -59,7 +60,7 @@ public class Partie {
     }
     
     public void debuterPartie(){ 
-        int JC = 0;
+        
         Scanner sc = new Scanner(System.in); // permet de prendre les entrées de l'utilisateur
         boolean partieFinie = false;
         String causePartieFinie = "Non déterminée";
