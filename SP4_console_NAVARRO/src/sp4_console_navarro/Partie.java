@@ -48,6 +48,14 @@ public class Partie {
     public void initialiserPartie(){
       grilleJeu = new Grille();
       
+      Joueur joueur1;
+      Joueur joueur2;
+      
+      Scanner j1 = new Scanner(System.in);
+      System.out.println("Rentrez le nom du Joueur 1 :");
+      joueur1 = new Joueur(j1.nextLine());
+      System.out.println("Rentrez le nom du Joueur 2 :");
+      joueur2 = new Joueur(j1.nextLine());
       
       for (int i = 0; i < 21; i++){
           Jeton jeton1 = new Jeton(ListeJoueurs[0].Couleur);
