@@ -4,6 +4,8 @@
  */
 package sp4_console_navarro;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Anthony
@@ -220,6 +222,7 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
         panneau_info_joueur.setVisible(true);
         panneau_info_partie.setVisible(true);
+        initialiserPartie();
     }//GEN-LAST:event_btn_startActionPerformed
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
@@ -261,6 +264,63 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
         });
     }
 
+    public void initialiserPartie(){
+      grilleJeu = new Grille();
+      
+      Joueur joueur1;
+      Joueur joueur2;
+      
+      
+      String nomJoueur1 = nom_joueur1.getText();
+      joueur1 = new Joueur(nomJoueur1);
+      
+      String nomJoueur2 = nom_joueur2.getText();
+      joueur2 = new Joueur(nomJoueur2);
+      
+      ListeJoueurs[0] = joueur1;
+      ListeJoueurs[1] = joueur2;
+      
+      
+      
+      for (int i = 0; i < 21; i++){
+          Jeton jeton1 = new Jeton(ListeJoueurs[0].Couleur);
+          Jeton jeton2 = new Jeton(ListeJoueurs[1].Couleur);
+          ListeJoueurs[0].ajouterJeton(jeton1);
+          ListeJoueurs[1].ajouterJeton(jeton2);
+        
+          
+          
+      
+       
+          
+      }
+     
+    }
+    
+        public void attribuerCouleursAuxJoueurs(){
+        double nb = Math.random();
+        int nb1;
+        int nb2;
+        
+        System.out.println(nb);
+        
+        if (nb >= 0.5){
+            nb1 = 1;
+        }else{
+            nb1 = 0;
+        }
+        
+        nb2 = 1-nb1;
+        
+        
+        ListeJoueurs[nb1].affecterCouleur("Rouge");
+        ListeJoueurs[nb2].affecterCouleur("Jaune");
+        
+    }
+    
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_col_0;
     private javax.swing.JButton btn_col_1;

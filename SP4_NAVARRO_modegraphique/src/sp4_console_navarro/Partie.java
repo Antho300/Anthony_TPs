@@ -64,6 +64,9 @@ public class Partie {
           Jeton jeton2 = new Jeton(ListeJoueurs[1].Couleur);
           ListeJoueurs[0].ajouterJeton(jeton1);
           ListeJoueurs[1].ajouterJeton(jeton2);
+          
+          ListeJoueurs[0] = joueur1;
+          ListeJoueurs[1] = joueur2;
         
       }
      
