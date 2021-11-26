@@ -232,7 +232,12 @@ public class Grille {
         return reference;
     }
     
-    
+    public boolean placerTrouNoir(int ligne , int col){ 
+        int l = ligne-1;
+        int c = col-1;
+        return CellulesJeu [l][c].placerTrouNoir();
+    }
+
     
     }
     

@@ -4,6 +4,7 @@
  */
 package sp4_console_navarro;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -265,7 +266,6 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
     }
 
     public void initialiserPartie(){
-      grilleJeu = new Grille();
       
       Joueur joueur1;
       Joueur joueur2;
@@ -292,7 +292,26 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
         
           
           
-      
+       Random alea = new Random();
+        int cpt = 0;
+
+        for (int j = 0; j < 5; j++) {
+            int l_trouNoir = alea.nextInt(6) + 1;
+            int col_trouNoir = alea.nextInt(7) + 1;
+            /* ici le random envoie un nbr aleatoire entre 0 et 6 sauf que le 
+                reste du programme gère les entrées du joueurs cad les numéros 
+                de colonnes entre 1 et 7 d'ou le plus 1.*/
+
+            if (cpt < 2) {
+                if (grilleJeu.placerDesintegrateur(l_trouNoir, col_trouNoir) == false) {
+                    cpt--;
+                }
+                cpt++;
+            }
+            if (grilleJeu.placerTrouNoir(l_trouNoir, col_trouNoir) == false) {
+                j--;
+            }
+        }
        
           
       }
