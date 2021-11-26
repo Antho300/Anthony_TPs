@@ -225,9 +225,15 @@ public class Grille {
         CellulesJeu[l3][c3].jetonCourant = null;
         
         return reference;
+        
     }
     
-    
+    public boolean placerTrouNoir(int ligne , int col){ 
+        int l = ligne-1;
+        int c = col-1;
+        return CellulesJeu [l][c].placerTrouNoir();
+    }
+
     
     }
     
