@@ -69,6 +69,12 @@ public class Grille {
             for (int j = 0; j < 7; j++){
                 if(CellulesJeu [i][j].jetonCourant == null){
                     System.out.print("x ");
+                }
+                else if(CellulesJeu [i][j].presenceDesintegrateur() == true){
+                    System.out.print("D ");
+                }
+                else if(CellulesJeu [i][j].jetonCourant == null){
+                    System.out.print("x ");
                 }else if (CellulesJeu [i][j].jetonCourant.lireCouleur() == "rouge" ){
                     System.out.print("R ");
                 }else{

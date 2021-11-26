@@ -224,6 +224,7 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
         panneau_info_joueur.setVisible(true);
         panneau_info_partie.setVisible(true);
         initialiserPartie();
+        grilleJeu.afficherGrilleSurConsole();
     }//GEN-LAST:event_btn_startActionPerformed
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
@@ -284,15 +285,15 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
       
       
       
-      for (int i = 0; i < 21; i++){
-          Jeton jeton1 = new Jeton(ListeJoueurs[0].Couleur);
-          Jeton jeton2 = new Jeton(ListeJoueurs[1].Couleur);
-          ListeJoueurs[0].ajouterJeton(jeton1);
-          ListeJoueurs[1].ajouterJeton(jeton2);
-        
-          
-          
-       Random alea = new Random();
+        for (int i = 0; i < 21; i++) {
+            Jeton jeton1 = new Jeton(ListeJoueurs[0].Couleur);
+            Jeton jeton2 = new Jeton(ListeJoueurs[1].Couleur);
+            ListeJoueurs[0].ajouterJeton(jeton1);
+            ListeJoueurs[1].ajouterJeton(jeton2);
+
+        }
+
+        Random alea = new Random();
         int cpt = 0;
 
         for (int j = 0; j < 5; j++) {
@@ -314,7 +315,7 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
         }
        
           
-      }
+      
      
     }
     
@@ -322,8 +323,6 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
         double nb = Math.random();
         int nb1;
         int nb2;
-        
-        System.out.println(nb);
         
         if (nb >= 0.5){
             nb1 = 1;
