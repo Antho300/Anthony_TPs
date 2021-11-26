@@ -280,6 +280,8 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
       ListeJoueurs[0] = joueur1;
       ListeJoueurs[1] = joueur2;
       
+      attribuerCouleursAuxJoueurs();
+      
       
       
       for (int i = 0; i < 21; i++){

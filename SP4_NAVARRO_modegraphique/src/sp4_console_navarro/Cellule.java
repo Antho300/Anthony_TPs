@@ -9,7 +9,7 @@ class Cellule {
     
     Jeton jetonCourant;
     boolean desintegrateur;
-    
+    boolean trouNoir;
     
     
     
@@ -89,6 +89,35 @@ class Cellule {
         }
         
     }
+    
+    public boolean placerTrouNoir() { // sans paramètres normalement 
+        if (trouNoir == false) {
+            trouNoir = true;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean presenceTrouNoir() {
+        if (trouNoir == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean activerTrouNoir() {
+        if (presenceTrouNoir() == true) {
+            trouNoir = false;
+            jetonCourant = null; 
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    
     
     
 }

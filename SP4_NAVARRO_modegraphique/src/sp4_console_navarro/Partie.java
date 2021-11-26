@@ -28,8 +28,6 @@ public class Partie {
         int nb1;
         int nb2;
         
-        System.out.println(nb);
-        
         if (nb >= 0.5){
             nb1 = 1;
         }else{
