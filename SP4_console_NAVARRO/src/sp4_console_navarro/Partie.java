@@ -29,7 +29,6 @@ public class Partie {
         int nb1;
         int nb2;
         
-        System.out.println(nb);
         
         if (nb >= 0.5){
             nb1 = 1;
@@ -56,6 +55,11 @@ public class Partie {
       joueur1 = new Joueur(j1.nextLine());
       System.out.println("Rentrez le nom du Joueur 2 :");
       joueur2 = new Joueur(j1.nextLine());
+      
+      ListeJoueurs[0] = joueur1;
+      ListeJoueurs[1] = joueur2;
+      
+      attribuerCouleursAuxJoueurs();
       
       for (int i = 0; i < 21; i++){
           Jeton jeton1 = new Jeton(ListeJoueurs[0].Couleur);
