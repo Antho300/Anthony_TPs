@@ -62,19 +62,23 @@ public class Grille {
     }
     
     
-    public void afficherGrilleSurConsole(){
-        
-        for (int i = 0; i < 6; i++){
+      public void afficherGrilleSurConsole() {
+
+        for (int i = 0; i < 6; i++) {
             System.out.println("");
-            for (int j = 0; j < 7; j++){
-                if(CellulesJeu [i][j].jetonCourant == null){
+            for (int j = 0; j < 7; j++) {
+                if (CellulesJeu[i][j].jetonCourant == null) {
                     System.out.print("x ");
-                }else if (CellulesJeu [i][j].jetonCourant.lireCouleur() == "rouge" ){
+                } else if (CellulesJeu[i][j].presenceDesintegrateur() == true) {
+                    System.out.print("D ");
+                } else if (CellulesJeu[i][j].jetonCourant == null) {
+                    System.out.print("x ");
+                } else if (CellulesJeu[i][j].jetonCourant.lireCouleur() == "rouge") {
                     System.out.print("R ");
-                }else{
+                } else {
                     System.out.print("J ");
                 }
-                
+
             }
         }
     }
