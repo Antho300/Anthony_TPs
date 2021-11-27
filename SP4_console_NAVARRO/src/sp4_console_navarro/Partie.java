@@ -9,117 +9,121 @@ import java.util.Scanner;
  * @author Anthony
  */
 public class Partie {
-    
-    Joueur [] ListeJoueurs = new Joueur [2];
+
+    Joueur[] ListeJoueurs = new Joueur[2];
     Joueur joueurCourant;
     Grille grilleJeu;
     int JC = 3;
-    
-    public Partie (Joueur joueur1 , Joueur joueur2){
-        
+
+    public Partie(Joueur joueur1, Joueur joueur2) {
+
         Joueur j1 = joueur1;
         Joueur j2 = joueur2;
-        
+
         ListeJoueurs[0] = j1;
         ListeJoueurs[1] = j2;
-     
-}
-    
-    public void attribuerCouleursAuxJoueurs(){
+
+    }
+
+    public void attribuerCouleursAuxJoueurs() {
         double nb = Math.random();
         int nb1;
         int nb2;
-        
-        
-        if (nb >= 0.5){
+
+        if (nb >= 0.5) {
             nb1 = 1;
-        }else{
+        } else {
             nb1 = 0;
         }
-        
-        nb2 = 1-nb1;
-        
-        
+
+        nb2 = 1 - nb1;
+
         ListeJoueurs[nb1].affecterCouleur("Rouge");
         ListeJoueurs[nb2].affecterCouleur("Jaune");
-        
+
     }
-    
-    public void initialiserPartie(){
-      grilleJeu = new Grille();
-      
-      Joueur joueur1;
-      Joueur joueur2;
-      
-      Scanner j1 = new Scanner(System.in);
-      System.out.println("Rentrez le nom du Joueur 1 :");
-      joueur1 = new Joueur(j1.nextLine());
-      System.out.println("Rentrez le nom du Joueur 2 :");
-      joueur2 = new Joueur(j1.nextLine());
-      
-      ListeJoueurs[0] = joueur1;
-      ListeJoueurs[1] = joueur2;
-      
-      attribuerCouleursAuxJoueurs();
-      
-      for (int i = 0; i < 21; i++){
-          Jeton jeton1 = new Jeton(ListeJoueurs[0].Couleur);
-          Jeton jeton2 = new Jeton(ListeJoueurs[1].Couleur);
-          ListeJoueurs[0].ajouterJeton(jeton1);
-          ListeJoueurs[1].ajouterJeton(jeton2);
-        
-      }
-     
+
+    public void initialiserPartie() {
+        grilleJeu = new Grille();
+
+        Joueur joueur1;
+        Joueur joueur2;
+
+        Scanner j1 = new Scanner(System.in);
+        System.out.println("Rentrez le nom du Joueur 1 :");
+        joueur1 = new Joueur(j1.nextLine());
+        System.out.println("Rentrez le nom du Joueur 2 :");
+        joueur2 = new Joueur(j1.nextLine());
+
+        ListeJoueurs[0] = joueur1;
+        ListeJoueurs[1] = joueur2;
+
+        attribuerCouleursAuxJoueurs();
+
+        for (int i = 0; i < 21; i++) {
+            Jeton jeton1 = new Jeton(ListeJoueurs[0].Couleur);
+            Jeton jeton2 = new Jeton(ListeJoueurs[1].Couleur);
+            ListeJoueurs[0].ajouterJeton(jeton1);
+            ListeJoueurs[1].ajouterJeton(jeton2);
+
+        }
+
         Random alea = new Random();
         int cpt = 0;
 
+        int l_trouNoir;
+        int col_trouNoir;
+        int l_desin;
+        int col_desin;
+
         for (int j = 0; j < 5; j++) {
-            int l_trouNoir = alea.nextInt(5) + 1;
-            int col_trouNoir = alea.nextInt(6) + 1;
+            l_trouNoir = alea.nextInt(5) + 1;
+            col_trouNoir = alea.nextInt(6) + 1;
             /* ici le random envoie un nbr aleatoire entre 0 et 6 sauf que le 
                 reste du programme gère les entrées du joueurs cad les numéros 
                 de colonnes entre 1 et 7 d'ou le plus 1.*/
-            // if (grilleJeu.placerTrouNoir(l_trouNoir,col_trouNoir) == false){
-            // j--;
-            // continue;
+            if (grilleJeu.CellulesJeu[l_trouNoir][col_trouNoir].presenceTrouNoir() == true){
+                j--;
+                
 
-            // }else{
-            // grilleJeu.placerTrouNoir(l_trouNoir,col_trouNoir);
-            // if (j ==0 || j==1){
-            // grilleJeu.placerDesintegrateur(l_trouNoir,col_trouNoir);
-            // } 
+            }else{
+                grilleJeu.placerTrouNoir(l_trouNoir,col_trouNoir);
+                if (j <= 1 && cpt <2){
+                    cpt ++;
+                    grilleJeu.placerDesintegrateur(l_trouNoir,col_trouNoir);
+                } 
+            }
+            // while (grilleJeu.CellulesJeu[l_trouNoir][col_trouNoir].presenceTrouNoir() == true) {
+                // l_trouNoir = alea.nextInt(5) + 1;
+                // col_trouNoir = alea.nextInt(6) + 1;
+
+            
+            
+            // grilleJeu.placerTrouNoir(l_trouNoir, col_trouNoir);
+            
+            
+            // if (j == 0 || j == 1) {
+                // grilleJeu.placerDesintegrateur(l_trouNoir, col_trouNoir);
             // }
-            while (grilleJeu.CellulesJeu[l_trouNoir][col_trouNoir].presenceTrouNoir() == true) {
-                l_trouNoir = alea.nextInt(5) + 1;
-                col_trouNoir = alea.nextInt(6) + 1;
-
-            }
-
-            grilleJeu.placerTrouNoir(l_trouNoir, col_trouNoir);
-            if (j == 0 || j == 1) {
-                grilleJeu.placerDesintegrateur(l_trouNoir, col_trouNoir);
-            }
 
         }
 
-            
-            
-          
-            for (int k = 0; k < 3; k++) {
-                int l_desin = (alea.nextInt(5)) + 1;
-                int col_desin = (alea.nextInt(6)) + 1;
-                while (grilleJeu.CellulesJeu[l_desin][col_desin].presenceDesintegrateur() == true || grilleJeu.CellulesJeu[l_desin][col_desin].presenceTrouNoir() == true ) {
-                    l_desin = (alea.nextInt(5)) + 1;
-                    col_desin = (alea.nextInt(6)) + 1;
-                }
-                grilleJeu.placerDesintegrateur(l_desin, col_desin);
+        Random alea1 = new Random();
+
+        for (int k = 0; k < 3; k++) {
+            l_desin = (alea1.nextInt(5)) + 1;
+            col_desin = (alea1.nextInt(6)) + 1;
+            while (grilleJeu.CellulesJeu[l_desin][col_desin].presenceDesintegrateur() == true || grilleJeu.CellulesJeu[l_desin][col_desin].presenceTrouNoir() == true ) {
+                l_desin = (alea1.nextInt(5)) + 1;
+                col_desin = (alea1.nextInt(6)) + 1;
             }
-        
+            grilleJeu.placerDesintegrateur(l_desin, col_desin);
+
+        }
 
     }
 
-
-     public void debuterPartie() {
+    public void debuterPartie() {
 
         Scanner sc = new Scanner(System.in); // permet de prendre les entrées de l'utilisateur
         boolean partieFinie = false;
