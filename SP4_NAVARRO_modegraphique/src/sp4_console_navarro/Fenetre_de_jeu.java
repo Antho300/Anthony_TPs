@@ -354,13 +354,15 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
             // }
 
         }
+        
+        Random alea1 = new Random();
 
         for (int k = 0; k < 3; k++) {
-            l_desin = (alea.nextInt(5)) + 1;
-            col_desin = (alea.nextInt(6)) + 1;
+            l_desin = (alea1.nextInt(5)) + 1;
+            col_desin = (alea1.nextInt(6)) + 1;
             while (grilleJeu.CellulesJeu[l_desin][col_desin].presenceDesintegrateur() == true || grilleJeu.CellulesJeu[l_desin][col_desin].presenceTrouNoir() == true ) {
-                l_desin = (alea.nextInt(5)) + 1;
-                col_desin = (alea.nextInt(6)) + 1;
+                l_desin = (alea1.nextInt(5)) + 1;
+                col_desin = (alea1.nextInt(6)) + 1;
             }
             grilleJeu.placerDesintegrateur(l_desin, col_desin);
 
