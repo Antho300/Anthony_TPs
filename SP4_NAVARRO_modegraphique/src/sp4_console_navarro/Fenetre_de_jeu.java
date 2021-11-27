@@ -224,7 +224,8 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
         panneau_info_joueur.setVisible(true);
         panneau_info_partie.setVisible(true);
         initialiserPartie();
-        panneau_grille.repaint();
+        panneau_grille.repaint(); // raffraichir l'affichage de la grille.
+        btn_start.setEnabled(false); // empecher d'utiliser le bouton "demarrer" une fois la partie lancée.
         
         grilleJeu.afficherGrilleSurConsole();
     }//GEN-LAST:event_btn_startActionPerformed
@@ -272,6 +273,7 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
 
         Joueur joueur1;
         Joueur joueur2;
+        Joueur JoueurCourant;
 
         String nomJoueur1 = nom_joueur1.getText();
         joueur1 = new Joueur(nomJoueur1);
@@ -291,7 +293,28 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
             ListeJoueurs[1].ajouterJeton(jeton2);
 
         }
+        
+        // Déterminer de manière aléatoire le premier joueur à jouer.
+        Random r = new Random();
+        boolean premier = r.nextBoolean();
+        if (premier){
+            JoueurCourant = ListeJoueurs[0];
+        }else{
+            JoueurCourant = ListeJoueurs[1];
+        }
 
+        // Afficher le joueur courant.
+        lbl_jcourant_nom.setText(JoueurCourant.Nom);
+        
+        // Affichage mode graphique.
+        lbl_j1_nom.setText(nomJoueur1); // afficher le nom du joueur sur l'affichage graphique.
+        lbl_j2_nom1.setText(nomJoueur2); // afficher le nom du joueur sur l'affichage graphique.
+        lbl_j1_couleur.setText(joueur1.Couleur); // afficher la couleur du jeton associé au joueur.
+        lbl_j2_couleur.setText(joueur2.Couleur); // afficher la couleur du jeton associé au joueur.
+        lbl_j1_desint.setText(joueur1.nombreDesintegrateurs + "");
+        lbl_j2_desint.setText(joueur2.nombreDesintegrateurs + "");
+              
+                
         Random alea = new Random();
         int cpt = 0;
         
