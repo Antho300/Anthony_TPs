@@ -67,32 +67,63 @@ public class Partie {
           ListeJoueurs[0] = joueur1;
           ListeJoueurs[1] = joueur2;
           
-          
+      } 
           
            Random alea = new Random();
-        int cpt = 0;
+           int cpt = 0;
 
             for (int j = 0; j < 5; j++) {
-                int l_trouNoir = alea.nextInt(6) + 1;
-                int col_trouNoir = alea.nextInt(7) + 1;
-                /* ici le random envoie un nbr aleatoire entre 0 et 6 sauf que le 
+            int l_trouNoir = alea.nextInt(5) + 1;
+            int col_trouNoir = alea.nextInt(6) + 1;
+            /* ici le random envoie un nbr aleatoire entre 0 et 6 sauf que le 
                 reste du programme gère les entrées du joueurs cad les numéros 
                 de colonnes entre 1 et 7 d'ou le plus 1.*/
+            // if (grilleJeu.placerTrouNoir(l_trouNoir,col_trouNoir) == false){
+            // j--;
+            // continue;
 
-                if (cpt < 2) {
-                    if (grilleJeu.placerDesintegrateur(l_trouNoir, col_trouNoir) == false) {
-                        cpt--;
-                    }
-                    cpt++;
-                }
-                if (grilleJeu.placerTrouNoir(l_trouNoir, col_trouNoir) == false) {
-                    j--;
-                }
+            // }else{
+            // grilleJeu.placerTrouNoir(l_trouNoir,col_trouNoir);
+            // if (j ==0 || j==1){
+            // grilleJeu.placerDesintegrateur(l_trouNoir,col_trouNoir);
+            // } 
+            // }
+            while (grilleJeu.CellulesJeu[l_trouNoir][col_trouNoir].presenceTrouNoir() == true) {
+                l_trouNoir = alea.nextInt(5) + 1;
+                col_trouNoir = alea.nextInt(6) + 1;
+
+            }
+
+            grilleJeu.placerTrouNoir(l_trouNoir, col_trouNoir);
+            if (j == 0 || j == 1) {
+                grilleJeu.placerDesintegrateur(l_trouNoir, col_trouNoir);
             }
 
         }
+            
+        
+            
+            
+            
+            
+           for (int k = 0; k < 3; k++) {
+               int l_desin = (alea.nextInt(5)) + 1;
+               int col_desin = (alea.nextInt(6)) + 1;
+               while (grilleJeu.CellulesJeu[l_desin][col_desin].presenceDesintegrateur() == true || grilleJeu.CellulesJeu[l_desin][col_desin].presenceTrouNoir() == true ) {
+                   l_desin = (alea.nextInt(5)) + 1;
+                   col_desin = (alea.nextInt(6)) + 1;
+                }
+                grilleJeu.placerDesintegrateur(l_desin, col_desin);
+        }
+
+            
+            
+            
+            
+
+        }
      
-    }
+   
     
     public void debuterPartie(){ 
         int JC = 0;

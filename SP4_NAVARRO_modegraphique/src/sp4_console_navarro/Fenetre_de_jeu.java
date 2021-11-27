@@ -266,25 +266,22 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
         });
     }
 
-    public void initialiserPartie(){
-      
-      Joueur joueur1;
-      Joueur joueur2;
-      
-      
-      String nomJoueur1 = nom_joueur1.getText();
-      joueur1 = new Joueur(nomJoueur1);
-      
-      String nomJoueur2 = nom_joueur2.getText();
-      joueur2 = new Joueur(nomJoueur2);
-      
-      ListeJoueurs[0] = joueur1;
-      ListeJoueurs[1] = joueur2;
-      
-      attribuerCouleursAuxJoueurs();
-      
-      
-      
+    public void initialiserPartie() {
+
+        Joueur joueur1;
+        Joueur joueur2;
+
+        String nomJoueur1 = nom_joueur1.getText();
+        joueur1 = new Joueur(nomJoueur1);
+
+        String nomJoueur2 = nom_joueur2.getText();
+        joueur2 = new Joueur(nomJoueur2);
+
+        ListeJoueurs[0] = joueur1;
+        ListeJoueurs[1] = joueur2;
+
+        attribuerCouleursAuxJoueurs();
+
         for (int i = 0; i < 21; i++) {
             Jeton jeton1 = new Jeton(ListeJoueurs[0].Couleur);
             Jeton jeton2 = new Jeton(ListeJoueurs[1].Couleur);
@@ -297,50 +294,68 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
         int cpt = 0;
 
         for (int j = 0; j < 5; j++) {
-            int l_trouNoir = alea.nextInt(6) + 1;
-            int col_trouNoir = alea.nextInt(7) + 1;
+            int l_trouNoir = alea.nextInt(5) + 1;
+            int col_trouNoir = alea.nextInt(6) + 1;
             /* ici le random envoie un nbr aleatoire entre 0 et 6 sauf que le 
                 reste du programme gère les entrées du joueurs cad les numéros 
                 de colonnes entre 1 et 7 d'ou le plus 1.*/
+            // if (grilleJeu.placerTrouNoir(l_trouNoir,col_trouNoir) == false){
+            // j--;
+            // continue;
 
-            if (cpt < 2) {
-                if (grilleJeu.placerDesintegrateur(l_trouNoir, col_trouNoir) == false) {
-                    cpt--;
-                }
-                cpt++;
+            // }else{
+            // grilleJeu.placerTrouNoir(l_trouNoir,col_trouNoir);
+            // if (j ==0 || j==1){
+            // grilleJeu.placerDesintegrateur(l_trouNoir,col_trouNoir);
+            // } 
+            // }
+            while (grilleJeu.CellulesJeu[l_trouNoir][col_trouNoir].presenceTrouNoir() == true) {
+                l_trouNoir = alea.nextInt(5) + 1;
+                col_trouNoir = alea.nextInt(6) + 1;
+
             }
-            if (grilleJeu.placerTrouNoir(l_trouNoir, col_trouNoir) == false) {
-                j--;
+            
+            grilleJeu.placerTrouNoir(l_trouNoir, col_trouNoir);
+            
+            
+            if (j == 0 || j == 1) {
+                grilleJeu.placerDesintegrateur(l_trouNoir, col_trouNoir);
             }
+
         }
-       
-          
-      
-     
+
+        for (int k = 0; k < 3; k++) {
+            int l_desin = (alea.nextInt(5)) + 1;
+            int col_desin = (alea.nextInt(6)) + 1;
+            while (grilleJeu.CellulesJeu[l_desin][col_desin].presenceDesintegrateur() == true || grilleJeu.CellulesJeu[l_desin][col_desin].presenceTrouNoir() == true ) {
+                l_desin = (alea.nextInt(5)) + 1;
+                col_desin = (alea.nextInt(6)) + 1;
+            }
+            grilleJeu.placerDesintegrateur(l_desin, col_desin);
+
+        }
+
     }
-    
-        public void attribuerCouleursAuxJoueurs(){
+
+    public void attribuerCouleursAuxJoueurs() {
         double nb = Math.random();
         int nb1;
         int nb2;
-        
-        if (nb >= 0.5){
+
+        if (nb >= 0.5) {
             nb1 = 1;
-        }else{
+        } else {
             nb1 = 0;
         }
-        
-        nb2 = 1-nb1;
-        
-        
+
+        nb2 = 1 - nb1;
+
         ListeJoueurs[nb1].affecterCouleur("Rouge");
         ListeJoueurs[nb2].affecterCouleur("Jaune");
-        
+
     }
-    
-    
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_col_0;
     private javax.swing.JButton btn_col_1;

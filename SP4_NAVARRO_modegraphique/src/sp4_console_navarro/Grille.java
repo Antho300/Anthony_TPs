@@ -64,16 +64,14 @@ public class Grille {
     
     public void afficherGrilleSurConsole(){
         
-        for (int i = 0; i < 6; i++){
+        for (int i = 5; i >=0 ; i--){
             System.out.println("");
             for (int j = 0; j < 7; j++){
-                if(CellulesJeu [i][j].jetonCourant == null){
-                    System.out.print("x ");
-                }
-                else if(CellulesJeu [i][j].presenceDesintegrateur() == true){
-                    System.out.print("D ");
-                }
-                else if(CellulesJeu [i][j].jetonCourant == null){
+                // if(CellulesJeu [i][j].presenceDesintegrateur() == true){
+                    // System.out.print("D ");
+                if(CellulesJeu [i][j].presenceTrouNoir() == true){
+                    System.out.print("T ");
+                }else if(CellulesJeu [i][j].jetonCourant == null){
                     System.out.print("x ");
                 }else if (CellulesJeu [i][j].jetonCourant.lireCouleur() == "rouge" ){
                     System.out.print("R ");
@@ -100,8 +98,8 @@ public class Grille {
     }
     
     public String lireCouleurDuJeton(int ligne , int col){
-        CellulesJeu[ligne][col].lireCouleurDuJeton();
-        return "";
+        return CellulesJeu[ligne][col].lireCouleurDuJeton();
+      
     }
     
     public boolean etreGagnantePourJoueur(Joueur unJoueur){
@@ -126,7 +124,7 @@ public class Grille {
         
         //test colonne gagnante
         for (int c=0; c<7; c++){
-            for(int l=0; l<4; l++){
+            for(int l=0; l<3; l++){
                 for (int i=0; i<4; i++){ //lecture des 4 cases voisines à la case de départ
                     if (!lireCouleurDuJeton(l+i,c).equals(uneCouleur)){
                         break;
