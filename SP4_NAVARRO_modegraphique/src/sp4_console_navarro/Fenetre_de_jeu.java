@@ -270,7 +270,7 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
     }
 
     public void initialiserPartie() {
-
+        
         Joueur joueur1;
         Joueur joueur2;
         Joueur JoueurCourant;
@@ -324,8 +324,8 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
         int col_desin;
 
         for (int j = 0; j < 5; j++) {
-            l_trouNoir = alea.nextInt(5) + 1;
-            col_trouNoir = alea.nextInt(6) + 1;
+            l_trouNoir = alea.nextInt(6) + 1;
+            col_trouNoir = alea.nextInt(7) + 1;
             /* ici le random envoie un nbr aleatoire entre 0 et 6 sauf que le 
                 reste du programme gère les entrées du joueurs cad les numéros 
                 de colonnes entre 1 et 7 d'ou le plus 1.*/
@@ -358,11 +358,11 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
         Random alea1 = new Random();
 
         for (int k = 0; k < 3; k++) {
-            l_desin = (alea1.nextInt(5)) + 1;
-            col_desin = (alea1.nextInt(6)) + 1;
+            l_desin = (alea1.nextInt(6)) + 1;
+            col_desin = (alea1.nextInt(7)) + 1;
             while (grilleJeu.CellulesJeu[l_desin][col_desin].presenceDesintegrateur() == true || grilleJeu.CellulesJeu[l_desin][col_desin].presenceTrouNoir() == true ) {
-                l_desin = (alea1.nextInt(5)) + 1;
-                col_desin = (alea1.nextInt(6)) + 1;
+                l_desin = (alea1.nextInt(6)) + 1;
+                col_desin = (alea1.nextInt(7)) + 1;
             }
             grilleJeu.placerDesintegrateur(l_desin, col_desin);
 
