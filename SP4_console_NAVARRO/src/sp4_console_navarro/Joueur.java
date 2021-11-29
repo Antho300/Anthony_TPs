@@ -14,7 +14,7 @@ public class Joueur {
     
     public Joueur (String nom){
         Nom = nom;
-        nombreJetonsRestants = 0;
+        nombreJetonsRestants = 21;
         nombreDesintegrateurs = 0;
     }
     
