@@ -262,36 +262,48 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
         // TODO add your handling code here:
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_0ActionPerformed
 
     private void btn_col_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_1ActionPerformed
         // TODO add your handling code here:
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_1ActionPerformed
 
     private void btn_col_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_2ActionPerformed
         // TODO add your handling code here:
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_2ActionPerformed
 
     private void btn_col_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_3ActionPerformed
         // TODO add your handling code here:
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
     private void btn_col_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_4ActionPerformed
         // TODO add your handling code here:
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_4ActionPerformed
 
     private void btn_col_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_5ActionPerformed
         // TODO add your handling code here:
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_5ActionPerformed
 
     private void btn_col_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_6ActionPerformed
         // TODO add your handling code here:
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
     
     // permet de changer de joueur courant
     public void joueurSuivant(){
-        
+        if (JoueurCourant == ListeJoueurs[0]){
+            JoueurCourant = ListeJoueurs[1];
+        }else{
+            JoueurCourant = ListeJoueurs[0];
+        }
+        lbl_joueur_courant_nom.setText(JoueurCourant.Nom); // met à jour le nom du joueur courant.
     }
     
     
@@ -331,12 +343,13 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    Joueur JoueurCourant;
     public void initialiserPartie() {
         
         Joueur joueur1;
         Joueur joueur2;
-        Joueur JoueurCourant;
+        
 
         String nomJoueur1 = nom_joueur1.getText();
         joueur1 = new Joueur(nomJoueur1);
