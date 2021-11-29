@@ -303,7 +303,7 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
         }else{
             JoueurCourant = ListeJoueurs[0];
         }
-        lbl_joueur_courant_nom.setText(JoueurCourant.Nom); // met à jour le nom du joueur courant.
+        lbl_jcourant_nom.setText(JoueurCourant.Nom); // met à jour le nom du joueur courant.
     }
     
     
