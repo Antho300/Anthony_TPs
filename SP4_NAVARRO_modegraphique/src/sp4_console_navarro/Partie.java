@@ -91,13 +91,13 @@ public class Partie {
             /* ici le random envoie un nbr aleatoire entre 0 et 6 sauf que le 
                 reste du programme gère les entrées du joueurs cad les numéros 
                 de colonnes entre 1 et 7 d'ou le plus 1.*/
-            if (grilleJeu.CellulesJeu[l_trouNoir][col_trouNoir].presenceTrouNoir() == true){
+            if (grilleJeu.CellulesJeu[l_trouNoir-1][col_trouNoir-1].presenceTrouNoir() == true){
                 j--;
                 
 
             }else{
                 grilleJeu.placerTrouNoir(l_trouNoir,col_trouNoir);
-                if (j <= 1 && cpt <2){
+                if (j <= 1 && cpt < 2){
                     cpt ++;
                     grilleJeu.placerDesintegrateur(l_trouNoir,col_trouNoir);
                 } 
@@ -116,13 +116,13 @@ public class Partie {
             // }
 
         }
-
+        
         Random alea1 = new Random();
 
         for (int k = 0; k < 3; k++) {
             l_desin = (alea1.nextInt(6)) + 1;
             col_desin = (alea1.nextInt(7)) + 1;
-            while (grilleJeu.CellulesJeu[l_desin][col_desin].presenceDesintegrateur() == true || grilleJeu.CellulesJeu[l_desin][col_desin].presenceTrouNoir() == true ) {
+            while (grilleJeu.CellulesJeu[l_desin-1][col_desin-1].presenceDesintegrateur() == true || grilleJeu.CellulesJeu[l_desin-1][col_desin-1].presenceTrouNoir() == true ) {
                 l_desin = (alea1.nextInt(6)) + 1;
                 col_desin = (alea1.nextInt(7)) + 1;
             }
@@ -199,7 +199,7 @@ public class Partie {
                 }
 
                 // le boolean "doitEtreTrue" renvoyé doit etre true car on a deja testé si l'emplacement était dispo.
-                boolean doitEtreTrue = grilleJeu.ajouterJetonDansColonne(jetonCourant, colonne);
+                boolean doitEtreTrue = grilleJeu.ajouterJetonDansColonne(joueurCourant, colonne);
 
             }
 

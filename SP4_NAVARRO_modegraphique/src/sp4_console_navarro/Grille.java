@@ -20,24 +20,24 @@ public class Grille {
     }
     
     
-    public boolean ajouterJetonDansColonne(Jeton m, int c){
+    public boolean ajouterJetonDansColonne(Joueur joueurCourant, int c) {
+        Jeton j = new Jeton(joueurCourant.Couleur);
         int colonne = c - 1;
-        Jeton j = m;
-        
-        for (int i = 5; i >= 0; i-=1){
-            if (i == 0 && CellulesJeu [i][colonne].jetonCourant != null){
+
+        for (int i = 0; i < 6; i ++) {
+            if (i == 5 && CellulesJeu[i][colonne].jetonCourant != null) {
                 return false;
-                
-            } else if (CellulesJeu [i][colonne].jetonCourant == null){
-                CellulesJeu [i][colonne].affecterJeton(j);
+
+            } else if (CellulesJeu[i][colonne].jetonCourant == null) {
+                CellulesJeu[i][colonne].affecterJeton(j);
                 return true;
-                
-            }else{
+
+            } else {
                 continue;
             }
-            
+
         }
-       return false; 
+        return false;
     }
     
     public boolean etreRemplie(){

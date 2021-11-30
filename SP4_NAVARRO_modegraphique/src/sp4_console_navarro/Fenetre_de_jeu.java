@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Fenetre_de_jeu extends javax.swing.JFrame {
 
     Joueur[] ListeJoueurs = new Joueur[2]; // afficher la grille de jeu.
-    Joueur joueurCourant;
+    // Joueur joueurCourant;
     Grille grilleJeu = new Grille();
 
     public Fenetre_de_jeu() {
@@ -262,51 +262,59 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
         // TODO add your handling code here:
-        joueurSuivant();
         jouerDansColonne(0);
+        if (grilleJeu.colonneRemplie(1) == true) btn_col_0.setEnabled(false);
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_0ActionPerformed
 
     private void btn_col_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_1ActionPerformed
         // TODO add your handling code here:
-        joueurSuivant();
-        jouerDansColonne(1);
+         jouerDansColonne(1);
+         if (grilleJeu.colonneRemplie(2) == true) btn_col_1.setEnabled(false);
+         joueurSuivant();
     }//GEN-LAST:event_btn_col_1ActionPerformed
 
     private void btn_col_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_2ActionPerformed
         // TODO add your handling code here:
-        joueurSuivant();
         jouerDansColonne(2);
+        if (grilleJeu.colonneRemplie(3) == true) btn_col_2.setEnabled(false);
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_2ActionPerformed
 
     private void btn_col_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_3ActionPerformed
         // TODO add your handling code here:
-        joueurSuivant();
         jouerDansColonne(3);
+        if (grilleJeu.colonneRemplie(4) == true) btn_col_3.setEnabled(false);
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
     private void btn_col_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_4ActionPerformed
         // TODO add your handling code here:
-        joueurSuivant();
         jouerDansColonne(4);
+        if (grilleJeu.colonneRemplie(5) == true) btn_col_4.setEnabled(false);
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_4ActionPerformed
 
     private void btn_col_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_5ActionPerformed
         // TODO add your handling code here:
-        joueurSuivant();
         jouerDansColonne(5);
+        if (grilleJeu.colonneRemplie(6) == true) btn_col_5.setEnabled(false);
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_5ActionPerformed
 
     private void btn_col_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_6ActionPerformed
         // TODO add your handling code here:
-        joueurSuivant();
         jouerDansColonne(6);
+        if (grilleJeu.colonneRemplie(7) == true) btn_col_6.setEnabled(false);
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
     // place les jetons dans la colonne
     public boolean jouerDansColonne(int indice_colonne){
         boolean resultatAction;
         
-        resultatAction = grilleJeu.ajouterJetonDansColonne(JoueurCourant., indice_colonne);
+        resultatAction = grilleJeu.ajouterJetonDansColonne(JoueurCourant, indice_colonne+1);
+        panneau_grille.repaint();
         if (resultatAction == true)   return true;
         else return false;
         
@@ -316,10 +324,11 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
     public void joueurSuivant(){
         if (JoueurCourant == ListeJoueurs[0]){
             JoueurCourant = ListeJoueurs[1];
-        }else{
-            JoueurCourant = ListeJoueurs[0];
         }
+        else JoueurCourant = ListeJoueurs[0];
         lbl_jcourant_nom.setText(JoueurCourant.Nom); // met à jour le nom du joueur courant.
+        
+        
     }
     
     
@@ -381,8 +390,8 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
         for (int i = 0; i < 21; i++) {
             Jeton jeton1 = new Jeton(ListeJoueurs[0].Couleur);
             Jeton jeton2 = new Jeton(ListeJoueurs[1].Couleur);
-            ListeJoueurs[0].ajouterJeton(jeton1);
-            ListeJoueurs[1].ajouterJeton(jeton2);
+            joueur1.ajouterJeton(jeton1);
+            joueur2.ajouterJeton(jeton2);
 
         }
         
@@ -390,9 +399,9 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
         Random r = new Random();
         boolean premier = r.nextBoolean();
         if (premier){
-            JoueurCourant = ListeJoueurs[0];
+            JoueurCourant = joueur1;
         }else{
-            JoueurCourant = ListeJoueurs[1];
+            JoueurCourant = joueur2;
         }
 
         // Afficher le joueur courant.
