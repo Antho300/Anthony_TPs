@@ -19,9 +19,9 @@ public class Grille {
         }
     }
 
-    public boolean ajouterJetonDansColonne(Jeton m, int c) {
+    public boolean ajouterJetonDansColonne(Joueur joueurCourant, int c) {
+        Jeton j = new Jeton(joueurCourant.Couleur);
         int colonne = c - 1;
-        Jeton j = m;
 
         for (int i = 0; i < 6; i ++) {
             if (i == 5 && CellulesJeu[i][colonne].jetonCourant != null) {
