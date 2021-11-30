@@ -63,25 +63,39 @@ public class Grille {
     
     
     public void afficherGrilleSurConsole(){
-        
+
         for (int i = 5; i >=0 ; i--){
+
             System.out.println("");
+
             for (int j = 0; j < 7; j++){
-                if(CellulesJeu [i][j].presenceDesintegrateur() == true){
-                    System.out.print("D ");
-                }else if(CellulesJeu [i][j].presenceTrouNoir() == true){
+                
+                Cellule cell = CellulesJeu [i][j];
+                
+                if(cell.presenceTrouNoir()){
                     System.out.print("T ");
-                }else if(CellulesJeu [i][j].jetonCourant == null){
-                    System.out.print("x ");
-                }else if (CellulesJeu [i][j].jetonCourant.lireCouleur() == "rouge" ){
-                    System.out.print("R ");
-                }else{
-                    System.out.print("J ");
                 }
                 
+                else if(cell.presenceDesintegrateur() && !cell.presenceTrouNoir()){
+                    System.out.print("D ");
+                }
+
+                else if(cell.jetonCourant == null){
+                    System.out.print("x ");
+
+                }else if ("Rouge".equals(cell.jetonCourant.lireCouleur()) ){
+                    System.out.print("R ");
+
+                }else{
+                    System.out.print("J ");
+                }  
+
             }
+
         }
+
     }
+
     
     
     public boolean celluleOccupee(int ligne, int col){

@@ -25,12 +25,64 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
         for (int i = 5; i >= 0; i--) {
             for (int j = 0; j < 7; j++) {
                 CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.CellulesJeu[i][j]);
+
+                cellGraph.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        Cellule c = cellGraph.celluleAssociee;
+                        if (c.jetonCourant == null) {
+                            return;
+                        }
+
+                        if (c.jetonCourant.Couleur.equals(JoueurCourant.Couleur)) {
+                            textemessage.setText("Le joueur " + JoueurCourant.Nom + "récupère un de ses jetons.");
+                            Jeton jrecup = c.recupererJeton();
+                            JoueurCourant.ajouterJeton(jrecup);
+                            joueurSuivant();
+                        } else {
+                            if (JoueurCourant.nombreDesintegrateurs > 0) {
+                                textemessage.setText("Le joueur " + JoueurCourant.Nom + "désintègre un jeton.");
+                                c.supprimerJeton();
+                                JoueurCourant.utiliserDesintegrateur();
+                                joueurSuivant();
+                            } else {
+                                return;
+                            }
+                        }
+                        
+                        grilleJeu.tasserGrille(col);
+                        
+                        
+                        panneau_grille.repaint();
+                        lbl_j1_desint.setText(ListeJoueurs[0].nombreDesintegrateurs + ""); // Charger le nombre de desintegrateurs
+                        lbl_j2_desint.setText(ListeJoueurs[1].nombreDesintegrateurs + "");
+
+                        boolean vic_j1 = grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]); // nous dit si la grille est gagnante pour un joueur
+                        boolean vic_j2 = grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]); // nous dit si la grille est gagnante pour un joueur
+
+                        if (vic_j1 && !vic_j2) {
+                            textemessage.setText("Victoire de " + ListeJoueurs[0].Nom); // Afficher le vainqueur
+                        }
+                        if (vic_j2 && !vic_j1) {
+                            textemessage.setText("Victoire de " + ListeJoueurs[1].Nom); // Afficher le vainqueur
+                        }
+                        if (vic_j1 && vic_j2) {
+                            if (JoueurCourant == ListeJoueurs[0]) {
+                                textemessage.setText("Victoire de " + ListeJoueurs[1].Nom + "Faute de jeu de l'autre joueur");
+                            } else {
+                                textemessage.setText("Victoire de " + ListeJoueurs[0].Nom + "Faute de jeu de l'autre joueur");
+                            }
+                        }
+
+                    }
+                });
+
                 panneau_grille.add(cellGraph);
 
             }
         }
     }
 
+    int col;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -263,6 +315,7 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
         // TODO add your handling code here:
         jouerDansColonne(0);
+        col = 1;
         if (grilleJeu.colonneRemplie(1) == true) { // Désactive le bouton si la colonne est remplie
             btn_col_0.setEnabled(false);
         }
@@ -272,6 +325,8 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
     private void btn_col_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_1ActionPerformed
         // TODO add your handling code here:
         jouerDansColonne(1);
+        col = 2;
+
         if (grilleJeu.colonneRemplie(2) == true) {
             btn_col_1.setEnabled(false);
         }
@@ -281,6 +336,8 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
     private void btn_col_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_2ActionPerformed
         // TODO add your handling code here:
         jouerDansColonne(2);
+        col = 3;
+
         if (grilleJeu.colonneRemplie(3) == true) {
             btn_col_2.setEnabled(false);
         }
@@ -290,6 +347,8 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
     private void btn_col_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_3ActionPerformed
         // TODO add your handling code here:
         jouerDansColonne(3);
+        col = 4;
+        
         if (grilleJeu.colonneRemplie(4) == true) {
             btn_col_3.setEnabled(false);
         }
@@ -299,6 +358,8 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
     private void btn_col_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_4ActionPerformed
         // TODO add your handling code here:
         jouerDansColonne(4);
+        col = 5;
+        
         if (grilleJeu.colonneRemplie(5) == true) {
             btn_col_4.setEnabled(false);
         }
@@ -308,7 +369,9 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
     private void btn_col_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_5ActionPerformed
         // TODO add your handling code here:
         jouerDansColonne(5);
-        if (grilleJeu.colonneRemplie(6) == true) { 
+        col = 6;
+        
+        if (grilleJeu.colonneRemplie(6) == true) {
             btn_col_5.setEnabled(false);
         }
         joueurSuivant();
@@ -317,6 +380,8 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
     private void btn_col_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_6ActionPerformed
         // TODO add your handling code here:
         jouerDansColonne(6);
+        col = 7;
+        
         if (grilleJeu.colonneRemplie(7) == true) {
             btn_col_6.setEnabled(false);
         }
@@ -329,23 +394,27 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
 
         resultatAction = grilleJeu.ajouterJetonDansColonne(JoueurCourant, indice_colonne + 1);
         panneau_grille.repaint();
-        
-        lbl_j1_desint.setText(ListeJoueurs[0].nombreDesintegrateurs+""); // Charger le nombre de desintegrateurs
-        lbl_j2_desint.setText(ListeJoueurs[1].nombreDesintegrateurs+"");
+
+        lbl_j1_desint.setText(ListeJoueurs[0].nombreDesintegrateurs + ""); // Charger le nombre de desintegrateurs
+        lbl_j2_desint.setText(ListeJoueurs[1].nombreDesintegrateurs + "");
 
         boolean vic_j1 = grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]); // nous dit si la grille est gagnante pour un joueur
         boolean vic_j2 = grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]); // nous dit si la grille est gagnante pour un joueur
 
-        if (vic_j1 && ! vic_j2)textemessage.setText("Victoire de " + ListeJoueurs[0].Nom); // Afficher le vainqueur
-        if (vic_j2 && ! vic_j1)textemessage.setText("Victoire de " + ListeJoueurs[1].Nom); // Afficher le vainqueur
-        
-        if (vic_j1 && vic_j2){
-            if (JoueurCourant == ListeJoueurs[0]) textemessage.setText("Victoire de " + ListeJoueurs[1].Nom + "Faute de jeu de l'autre joueur");
-            else textemessage.setText("Victoire de " + ListeJoueurs[0].Nom + "Faute de jeu de l'autre joueur");
+        if (vic_j1 && !vic_j2) {
+            textemessage.setText("Victoire de " + ListeJoueurs[0].Nom); // Afficher le vainqueur
         }
-        
-        
-        
+        if (vic_j2 && !vic_j1) {
+            textemessage.setText("Victoire de " + ListeJoueurs[1].Nom); // Afficher le vainqueur
+        }
+        if (vic_j1 && vic_j2) {
+            if (JoueurCourant == ListeJoueurs[0]) {
+                textemessage.setText("Victoire de " + ListeJoueurs[1].Nom + "Faute de jeu de l'autre joueur");
+            } else {
+                textemessage.setText("Victoire de " + ListeJoueurs[0].Nom + "Faute de jeu de l'autre joueur");
+            }
+        }
+
         if (resultatAction == true) {
             return true;
         } else {

@@ -145,7 +145,8 @@ public class Partie {
         Joueur adversaireCourant;
 
         Jeton jetonCourant = null;
-
+        
+        
         while (!partieFinie) {
 
             if (JC == 0) {
@@ -182,24 +183,83 @@ public class Partie {
 
             //cas où la partie n'est pas terminée, le tour est lancé
             if (!partieFinie) {
-                
+
                 grilleJeu.afficherGrilleSurConsole();
+                String OuiNon = "";
                 
-                System.out.println("\nC'est à votre tour de placer votre jeton\nEntrez un numéro de colone");
+                if (joueurCourant.nombreDesintegrateurs>0){
+                    System.out.println("\nC'est au tour de " + joueurCourant.Nom + " de placer votre jeton\nEst ce que vous souhaitez utiliser un de vos désintégrateur? (O/N)");
+                    OuiNon = sc.nextLine();
+                    while (!"N".equals(OuiNon) && !"O".equals(OuiNon)){
+                        System.out.println("Erreur il faut rentrer O pour oui ou N pour Non\nEst ce que vous souhaitez utiliser un de vos désintégrateur? (O/N)");
+                        OuiNon = sc.nextLine();
+                    }
+                    
+                if ("O".equals(OuiNon)){
+                    
+                    int colDes;
+                    int lDes;
+                    
+                    System.out.println("Entrez les coordonnées du jeton a désintégrer:");
+                    System.out.println("Entrez la colonne du jeton a désintégrer:");
+                    
+                    colDes = sc.nextInt() - 1;
+                    while (colDes > 6 || colDes < 0) {
+                        System.out.println("Erreur : veuillez saisir une colonne valide :");
+                        colDes = sc.nextInt() - 1;
+                    }
+                    
+                    System.out.println("Veuillez saisir la ligne :");
+                    lDes = 5 - sc.nextInt();
+                    while (lDes> 5 || lDes < 0) {
+                        System.out.println("Erreur : veuillez saisir une ligne valide :");
+                        lDes = 5 - sc.nextInt() ;
+                    }
+
+                    if (grilleJeu.CellulesJeu[lDes][colDes].jetonCourant != null && !grilleJeu.CellulesJeu[lDes][colDes].lireCouleurDuJeton().equals(joueurCourant.Couleur)) {
+                        grilleJeu.supprimerJeton(lDes, colDes);
+                        grilleJeu.tasserGrille(colDes);
+                        joueurCourant.utiliserDesintegrateur();
+                    }
+                }
+                }
+                
+                System.out.println("\nC'est au tour de "+ joueurCourant.Nom+ " de placer votre jeton\nEntrez un numéro de colonne");
                 int colonne = sc.nextInt();
-                
+
                 boolean placementImpossible = grilleJeu.colonneRemplie(colonne);// test si l'emplacement est dispo
+                
                 while (placementImpossible == true) { // à refaire jusqu'à ce que le choix de colonne soit valide
 
-                    System.out.println("Erreur : la colonne " + colonne + " est remplie.\nEntrez un autre numéro de colone");
+                    System.out.println("Erreur : la colonne " + colonne + " est remplie.\nEntrez un autre numéro de colonne");
                     colonne = sc.nextInt();
 
                     placementImpossible = grilleJeu.colonneRemplie(colonne);
 
+                }                
+                             
+                boolean placerJeton = true; // avant de tester si il y a trou noir
+                
+                for ( int i = 0 ; i<7 ; i++){
+                    if (grilleJeu.CellulesJeu[i][colonne-1].jetonCourant == null)
+                        
+                        if (grilleJeu.CellulesJeu[i][colonne-1].presenceDesintegrateur() == true){
+                            joueurCourant.obtenirDesintegrateur();
+                            grilleJeu.CellulesJeu[i][colonne-1].recupererDesintegrateur();
+                            
+                        }
+                        
+                        if (grilleJeu.CellulesJeu[i][colonne-1].presenceTrouNoir()){
+                            grilleJeu.CellulesJeu[i][colonne-1].activerTrouNoir();
+                            boolean PlacerJeton = false;
+                        }
+                
+                        break;
+                        
                 }
-
-                // le boolean "doitEtreTrue" renvoyé doit etre true car on a deja testé si l'emplacement était dispo.
-                boolean doitEtreTrue = grilleJeu.ajouterJetonDansColonne(joueurCourant, colonne);
+                if (placerJeton){
+                    grilleJeu.ajouterJetonDansColonne(joueurCourant, colonne);
+                }
 
             }
 
