@@ -263,38 +263,54 @@ public class Fenetre_de_jeu extends javax.swing.JFrame {
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
         // TODO add your handling code here:
         joueurSuivant();
+        jouerDansColonne(0);
     }//GEN-LAST:event_btn_col_0ActionPerformed
 
     private void btn_col_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_1ActionPerformed
         // TODO add your handling code here:
         joueurSuivant();
+        jouerDansColonne(1);
     }//GEN-LAST:event_btn_col_1ActionPerformed
 
     private void btn_col_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_2ActionPerformed
         // TODO add your handling code here:
         joueurSuivant();
+        jouerDansColonne(2);
     }//GEN-LAST:event_btn_col_2ActionPerformed
 
     private void btn_col_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_3ActionPerformed
         // TODO add your handling code here:
         joueurSuivant();
+        jouerDansColonne(3);
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
     private void btn_col_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_4ActionPerformed
         // TODO add your handling code here:
         joueurSuivant();
+        jouerDansColonne(4);
     }//GEN-LAST:event_btn_col_4ActionPerformed
 
     private void btn_col_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_5ActionPerformed
         // TODO add your handling code here:
         joueurSuivant();
+        jouerDansColonne(5);
     }//GEN-LAST:event_btn_col_5ActionPerformed
 
     private void btn_col_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_6ActionPerformed
         // TODO add your handling code here:
         joueurSuivant();
+        jouerDansColonne(6);
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
+    // place les jetons dans la colonne
+    public boolean jouerDansColonne(int indice_colonne){
+        boolean resultatAction;
+        
+        resultatAction = grilleJeu.ajouterJetonDansColonne(JoueurCourant., indice_colonne);
+        if (resultatAction == true)   return true;
+        else return false;
+        
+    }
     
     // permet de changer de joueur courant
     public void joueurSuivant(){
