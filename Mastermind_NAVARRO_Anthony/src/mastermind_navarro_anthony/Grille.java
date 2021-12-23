@@ -51,21 +51,49 @@ public class Grille {
         }
     }
     
-    public int verifiercombi(int l){
-        int nbrouge =0; //nombre de rouge total
-        int nbblanc=0;  // nombre de blanc final
-        int nbblanctot = 0; //nombre de blanc total (en comptant les rouges)
+    public int[] verifiercombi(int l) {
+        int nbR = 0; // nombre rouge final
+        int nbB = 0;  // nombre blanc final
+        boolean Check[] = new boolean[4];
+
+        for (int i = 0; i < 4; i++) {
+            if (grille[l][i].Couleur == combi[i]) {
+                nbR += 1;
+                Check[i] = true;
+            }
+        }
+
+        for (int j = 0; j < 4; j++) {
+            for (int k = 0; k < 4; k++) {
+                if (grille[l][j].Couleur != combi[j] && Check[k] == false && grille[l][k].Couleur == combi[j]) {
+                    nbB += 1;
+                    Check[k] = true;
+                    break;
+                }
+
+            }
+
+        }
         
+        int [] valeursRB = {nbR, nbB}; // Comme je ne peux pas retourner deux int, je retourne un tableau contenant mes deux valeurs avec le nombre de rouge en premier.
         
-        return nbrouge;
-    }
+        return valeursRB;
+    } 
         
      
     
     
     
     
-    public void affichergrille(){
+    public void affichergrilleetindic(){
+        
+    }
+    
+    public void verifcombi(){
+        
+    }
+    
+    public void ajoutercouleur(){
         
     }
     
