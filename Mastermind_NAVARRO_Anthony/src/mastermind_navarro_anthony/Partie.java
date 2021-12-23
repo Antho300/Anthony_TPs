@@ -75,15 +75,17 @@ public class Partie {
                         valcouleur = scan.nextInt();
                         System.out.println(" ");
                         
-                        if (valcouleur != 1 || valcouleur != 2|| valcouleur != 3|| valcouleur != 4){
+                        if (valcouleur == 1 || valcouleur == 2|| valcouleur == 3|| valcouleur == 4){
+                            bon = 2;
+                        }else{
                             System.out.println("Je n'ai pas compris, réessayez.");
                             continue;
-                        }else{
-                            bon = 2;
                         }
                     }    
                     
                     if (valcouleur == 1){
+                        Boule b;
+                        grillejeu.ajouterboule(b, i, j);
                         grillejeu.grille[i][j].Couleur = "rouge";
                     }else if (valcouleur == 2){
                         grillejeu.grille[i][j].Couleur = "jaune";
