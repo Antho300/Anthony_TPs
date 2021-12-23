@@ -85,7 +85,34 @@ public class Grille {
     
     
     
-    public void affichergrilleetindic(){
+    public void affichergrilleetindic(int val[]){
+        int valeursRB1 [] = new int[2];
+        for (int l = 0 ; l < 2; l++){
+            valeursRB1 [l] = val[l];
+        }
+        System.out.print("Voici la grille de jeu :                       ");
+        System.out.print("Voici les indications de l'ordinateur :");
+        System.out.println(" ");
+        System.out.println("________________________                       ______");
+        
+        for (int i = 0 ; i < 12; i++){
+            for (int j = 0 ; j < 4; j++){
+                if (j == 0){
+                   System.out.print("|" + grille[i][j].Couleur + "|"); 
+                }else{
+                   System.out.print(grille[i][j].Couleur + "|");
+                }
+            }
+            for (int k = 0 ; k < 2; k++){
+                if (k == 0){
+                    System.out.print("          " + valeursRB1[k] + "|");
+                    
+                }else{
+                    System.out.print(valeursRB1[k] + "|");
+                }
+            }
+            
+        }
         
     }
     
