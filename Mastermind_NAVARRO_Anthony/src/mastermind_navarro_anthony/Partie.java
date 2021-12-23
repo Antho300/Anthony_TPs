@@ -50,16 +50,56 @@ public class Partie {
     }
     
     public void debuterpartie (){
-        System.out.println("Allons ordinateur, initialise une suite de couleurs pour voir de quoi" + nomjoueur + "est capable");
+        int finpartie = 1; // Pour arrêter la partie finpartie = 2.
+        int valcouleur = 0;
+        String couleur;
+        int niemecouleur = 1;
+        int bon = 0;
         
+        System.out.println("Allons ordinateur, initialise une suite de couleurs pour voir de quoi" + nomjoueur + "est capable");
+        grillejeu.creercombinaison(); // La liste de référence est créée
+        
+        while(finpartie != 2){
+            
+            for (int i = 0; i < 12; i ++){ // Début des 12 boucles pour trouver la ligne de l'ordinateur.
+                niemecouleur = 1;
+                for (int j = 0; j < 4; j++){
+                    bon = 0;
+                    while(bon != 2){ // l'utilisateur doit donner une valeur correcte
+                        System.out.println("Pour rappel, voici le code couleur :\n  -1 = Rouge\n  -2 = Jaune\n  -3 = Bleu\n  -4 = Vert");
+                        System.out.println("Rentrez une valeur pour placer la" + niemecouleur + "couleur");
+                        Scanner sc = new Scanner(System.in);
+                        valcouleur = sc.nextInt();
+                        System.out.println(" ");
+                        
+                        if (valcouleur != 1 || valcouleur != 2|| valcouleur != 3|| valcouleur != 4){
+                            continue;
+                        }else{
+                            bon = 2;
+                        }
+                    }    
+                    
+                    if (valcouleur == 1){
+                        
+                    }
+                        
+                    niemecouleur += 1;
+                
+                }
+                }
+                
+                
+            
+            }
+        
+        }
         
         
         
     }
     
     
-    
-}
+
 
     
     
