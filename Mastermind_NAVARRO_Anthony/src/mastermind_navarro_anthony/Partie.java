@@ -56,8 +56,9 @@ public class Partie {
         int niemecouleur = 1;
         int bon = 0;
         int nbRB [] = new int[2];
+        Scanner scan = new Scanner(System.in);
         
-        System.out.println("Allons ordinateur, initialise une suite de couleurs pour voir de quoi" + nomjoueur + "est capable");
+        System.out.println("Allons ordinateur, initialise une suite de couleurs pour voir de quoi " + nomjoueur + " est capable");
         grillejeu.creercombinaison(); // La liste de référence est créée
         grillejeu.affichercombinaison();
         
@@ -70,8 +71,8 @@ public class Partie {
                     while(bon != 2){ // l'utilisateur doit donner une valeur correcte
                         System.out.println("Pour rappel, voici le code couleur :\n  -1 = Rouge\n  -2 = Jaune\n  -3 = Bleu\n  -4 = Vert");
                         System.out.println("Rentrez une valeur pour placer la " + niemecouleur + " ère/ème couleur");
-                        Scanner sc = new Scanner(System.in);
-                        valcouleur = sc.nextInt();
+                        
+                        valcouleur = scan.nextInt();
                         System.out.println(" ");
                         
                         if (valcouleur != 1 || valcouleur != 2|| valcouleur != 3|| valcouleur != 4){
