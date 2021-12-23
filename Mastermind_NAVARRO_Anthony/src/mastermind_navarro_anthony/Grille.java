@@ -39,7 +39,15 @@ public class Grille {
     
     public void affichercombinaison(){
         for(int i= 0 ; i<4; i++){
-            System.out.print(combi[i]+ " ");
+            if(combi[i] == "jaune"){
+                System.out.print("J ");
+            }else if(combi[i] == "rouge"){
+                System.out.print("R ");
+            }else if(combi[i] == "bleu"){
+                System.out.print("B ");
+            }else if(combi[i] == "vert"){
+                System.out.print("Ve ");
+            }
         }
     }
     
