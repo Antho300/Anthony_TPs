@@ -75,6 +75,7 @@ public class Partie {
                         System.out.println(" ");
                         
                         if (valcouleur != 1 || valcouleur != 2|| valcouleur != 3|| valcouleur != 4){
+                            System.out.println("Je n'ai pas compris, réessayez.");
                             continue;
                         }else{
                             bon = 2;
