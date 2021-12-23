@@ -80,23 +80,29 @@ public class Partie {
                     }    
                     
                     if (valcouleur == 1){
-                        
+                        grillejeu.grille[i][j].Couleur = "rouge";
+                    }else if (valcouleur == 2){
+                        grillejeu.grille[i][j].Couleur = "jaune";
+                    }else if (valcouleur == 3){
+                        grillejeu.grille[i][j].Couleur = "bleu";
+                    }else if (valcouleur == 4){
+                        grillejeu.grille[i][j].Couleur = "vert";
                     }
-                        
                     niemecouleur += 1;
                 
                 }
-                }
+                
+            }
                 
                 
             
-            }
-        
         }
         
-        
-        
     }
+        
+        
+        
+}
     
     
 
