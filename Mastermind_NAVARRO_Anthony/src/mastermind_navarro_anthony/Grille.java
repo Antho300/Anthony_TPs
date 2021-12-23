@@ -11,6 +11,7 @@ public class Grille {
     Boule grille [][] = new Boule[12][4]; // initialise notre grille
     String combi [] = new String[4]; // initialise une ligne pour la combinaison
     String listecoul[]={"jaune","rouge","bleu","vert"};
+    int aide[][] = new int [12][2];
     
     
     public Grille() { // constructeur qui remplit la grille avec des boules null = cases vides
@@ -75,6 +76,14 @@ public class Grille {
 
         }
         
+        for (int n = 0; n < 2; n++){
+            if (n == 0){
+                aide[l][n] = nbR;
+            }else{
+                aide[l][n] = nbB;
+            }
+        }
+        
         int [] valeursRB = {nbR, nbB}; // Comme je ne peux pas retourner deux int, je retourne un tableau contenant mes deux valeurs avec le nombre de rouge en premier.
         
         return valeursRB;
@@ -85,37 +94,49 @@ public class Grille {
     
     
     
-    public void affichergrilleetindic(int val[]){
-        int valeursRB1 [] = new int[2];
+    public void affichergrilleetindic() {
+        /*int valeursRB1 [] = new int[2];
         for (int l = 0 ; l < 2; l++){
             valeursRB1 [l] = val[l];
         }
+         */
+
         System.out.print("Voici la grille de jeu :                       ");
         System.out.print("Voici les indications de l'ordinateur :");
         System.out.println(" ");
         System.out.println("________________________                       ______");
-        
-        for (int i = 0 ; i < 12; i++){
-            for (int j = 0 ; j < 4; j++){
-                if (j == 0){
-                   System.out.print("|" + grille[i][j].Couleur + "|"); 
-                }else{
-                   System.out.print(grille[i][j].Couleur + "|");
+
+        for (int i = 0; i < 12; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (grille[i][j] != null) {
+                    if (j == 0) {
+                        System.out.print("|" + grille[i][j].Couleur + "|");
+                    } else {
+                        System.out.print(grille[i][j].Couleur + "|");
+                    }
+                } else {
+                    if (j == 0) {
+                        System.out.print("|");
+                    } else {
+                        System.out.print(" |");
+                    }
+                }
+                
+                if (j < 2) {
+                    if (j == 0) {
+                        System.out.print("           |" + aide[i][j] + "|");
+                    } else {
+                        System.out.print(aide[i][j] + "|");
+                    }
                 }
             }
-            for (int k = 0 ; k < 2; k++){
-                if (k == 0){
-                    System.out.print("          " + valeursRB1[k] + "|");
-                    
-                }else{
-                    System.out.print(valeursRB1[k] + "|");
-                }
-            }
-            
+        System.out.println(" ");
         }
         
     }
-    
+        
+        
+        
     public void verifcombi(){
         
     }
