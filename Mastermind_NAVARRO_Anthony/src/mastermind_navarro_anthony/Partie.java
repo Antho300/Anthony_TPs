@@ -55,9 +55,11 @@ public class Partie {
         String couleur;
         int niemecouleur = 1;
         int bon = 0;
+        int nbRB [] = new int[2];
         
         System.out.println("Allons ordinateur, initialise une suite de couleurs pour voir de quoi" + nomjoueur + "est capable");
         grillejeu.creercombinaison(); // La liste de référence est créée
+        grillejeu.affichercombinaison();
         
         while(finpartie != 2){
             
@@ -67,7 +69,7 @@ public class Partie {
                     bon = 0;
                     while(bon != 2){ // l'utilisateur doit donner une valeur correcte
                         System.out.println("Pour rappel, voici le code couleur :\n  -1 = Rouge\n  -2 = Jaune\n  -3 = Bleu\n  -4 = Vert");
-                        System.out.println("Rentrez une valeur pour placer la" + niemecouleur + "couleur");
+                        System.out.println("Rentrez une valeur pour placer la " + niemecouleur + " ère/ème couleur");
                         Scanner sc = new Scanner(System.in);
                         valcouleur = sc.nextInt();
                         System.out.println(" ");
@@ -91,6 +93,21 @@ public class Partie {
                     niemecouleur += 1;
                 
                 }
+               
+               System.out.println("Voyons ce qu'il en est :");
+               
+               nbRB = grillejeu.verifiercombi(i);
+               grillejeu.affichergrilleetindic();
+               
+               if (nbRB[0] == 4){
+                   System.out.println("Vous avez gagné");
+                   finpartie = 2;
+               }else if (i == 12 && nbRB[0] != 4){
+                   System.out.println("Vous avez perdu.");
+                   finpartie = 2;
+               }else{
+                   System.out.println("Vous y êtes presque, continuez !");
+               }
                 
             }
                 
