@@ -87,7 +87,12 @@ public class Partie {
                 for (int j = 0; j < 4; j++){
                     bon = 0;
                     while(bon != 2){ // l'utilisateur doit donner une valeur correcte
-                        System.out.println("Pour rappel, voici le code couleur :\n  -1 = Rouge\n  -2 = Jaune\n  -3 = Bleu\n  -4 = Vert");
+                        if (mode == 1 || mode == 2){
+                            System.out.println("Pour rappel, voici le code couleur :\n  -1 = Rouge\n  -2 = Jaune\n  -3 = Bleu\n  -4 = Vert");
+                        }else{
+                            System.out.println("Pour rappel, voici le code couleur :\n  -1 = Rouge\n  -2 = Jaune\n  -3 = Bleu\n  -4 = Vert\n  -5 = Orange\n  -6 = Marron");
+                        }
+                        
                         System.out.println("Rentrez une valeur pour placer la " + niemecouleur + " ère/ème couleur");
                         
                         valcouleur = scan.nextInt();
