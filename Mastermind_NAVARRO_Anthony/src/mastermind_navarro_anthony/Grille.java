@@ -16,7 +16,8 @@ public class Grille {
     String combi3 [] = new String[5]; // initialise une ligne pour la combinaison mode 3
     String listecoul12[]={"jaune","rouge","bleu","vert"}; // couleurs mode 1 et 2
     String listecoul3[]={"jaune","rouge","bleu","vert","orange","marron"}; //couleurs mode 3
-    int aide[][] = new int [12][2]; // grille qui nous donnera le nombre de jetons correctement^placée et le nombre de jetons de la bonne couleur présents
+    int aide12[][] = new int [12][2]; // grille qui nous donnera le nombre de jetons correctement^placée et le nombre de jetons de la bonne couleur présents
+    int aide3[][] = new int [15][2];
     
     
     public Grille(int mode) { // constructeur qui remplit la grille avec des boules null = cases vides
@@ -133,13 +134,8 @@ public class Grille {
         int nbR = 0; // nombre rouge final
         int nbB = 0;  // nombre blanc final
         
-        if (mode == 1){ // On crée un tableau qui va nous permettre de vérifier les pions bien placés puis ceux mal placés mais bien présents
-            boolean Check[] = new boolean[3];
-        } else if (mode == 2){
-            boolean Check[] = new boolean[4];
-        } else {
-            boolean Check[] = new boolean[5];    
-        }
+        // On crée un tableau qui va nous permettre de vérifier les pions bien placés puis ceux mal placés mais bien présents
+            boolean Check[] = new boolean[mode + 2];
         
         if (mode == 1){
             for (int i = 0; i < 3; i++) {
@@ -163,9 +159,9 @@ public class Grille {
 
             for (int n = 0; n < 2; n++){
                 if (n == 0){
-                    aide[l][n] = nbR;
+                    aide12[l][n] = nbR;
                 }else{
-                    aide[l][n] = nbB;
+                    aide12[l][n] = nbB;
                 }
             }
 
@@ -195,9 +191,9 @@ public class Grille {
 
             for (int n = 0; n < 2; n++){
                 if (n == 0){
-                    aide[l][n] = nbR;
+                    aide12[l][n] = nbR;
                 }else{
-                    aide[l][n] = nbB;
+                    aide12[l][n] = nbB;
                 }
             }
 
@@ -227,9 +223,9 @@ public class Grille {
 
             for (int n = 0; n < 2; n++){
                 if (n == 0){
-                    aide[l][n] = nbR;
+                    aide3[l][n] = nbR;
                 }else{
-                    aide[l][n] = nbB;
+                    aide3[l][n] = nbB;
                 }
             }
 
@@ -246,12 +242,8 @@ public class Grille {
     
     
     
-    public void affichergrilleetindic() {
-        /*int valeursRB1 [] = new int[2];
-        for (int l = 0 ; l < 2; l++){
-            valeursRB1 [l] = val[l];
-        }
-         */
+    public void affichergrilleetindic(int mode) {
+        
         int val = 0;
 
         System.out.print("Voici la grille de jeu :                       ");
@@ -259,56 +251,171 @@ public class Grille {
         System.out.println(" ");
         System.out.println("________________________                       _______________________________________");
 
-        for (int i = 0; i < 12; i++) {
-            val = 0;
-            for (int j = 0; j < 6; j++) {
-                if (j < 4){
-                    if (grille[i][j] != null) {
-                        if (j == 0) {
-                            if(grille[i][j].Couleur == "rouge"){
-                                System.out.print("      |\033[31mR\033[0m|");
-                            }else if(grille[i][j].Couleur == "vert"){
-                                System.out.print("      |V|");
-                            }else if(grille[i][j].Couleur == "bleu"){
-                                System.out.print("      |B|");
-                            }else if(grille[i][j].Couleur == "jaune"){
-                                System.out.print("      |J|");
+        if (mode == 1){
+            for (int i = 0; i < 12; i++) {
+                val = 0;
+                for (int j = 0; j < 5; j++) {
+                    if (j < 3){
+                        if (grillemode1[i][j] != null) {
+                            if (j == 0) {
+                                if(grillemode1[i][j].Couleur == "rouge"){
+                                    System.out.print("      |\033[31mR\033[0m|");
+                                }else if(grillemode1[i][j].Couleur == "vert"){
+                                    System.out.print("      |V|");
+                                }else if(grillemode1[i][j].Couleur == "bleu"){
+                                    System.out.print("      |B|");
+                                }else if(grillemode1[i][j].Couleur == "jaune"){
+                                    System.out.print("      |J|");
+                                }
+                                val = 1;
+                            } else {
+                                if(grillemode1[i][j].Couleur == "rouge"){
+                                    System.out.print("\033[31mR\033[0m|");
+                                }else if(grillemode1[i][j].Couleur == "vert"){
+                                    System.out.print("V|");
+                                }else if(grillemode1[i][j].Couleur == "bleu"){
+                                    System.out.print("B|");
+                                }else if(grillemode1[i][j].Couleur == "jaune"){
+                                    System.out.print("J|");
+                                }
                             }
-                            val = 1;
                         } else {
-                            if(grille[i][j].Couleur == "rouge"){
-                                System.out.print("\033[31mR\033[0m|");
-                            }else if(grille[i][j].Couleur == "vert"){
-                                System.out.print("V|");
-                            }else if(grille[i][j].Couleur == "bleu"){
-                                System.out.print("B|");
-                            }else if(grille[i][j].Couleur == "jaune"){
-                                System.out.print("J|");
+                            if (j == 0) {
+                                System.out.print("      |");
+                            } else {
+                                System.out.print(" |");
                             }
                         }
-                    } else {
-                        if (j == 0) {
-                            System.out.print("      |");
+                    }else{
+                        if (j == 4) {
+                            if (val == 1){
+                                System.out.print("                                              |" + aide12[i][0] + "|");
+                            }else{
+                                System.out.print(" |                                              |" + aide12[i][0] + "|");
+                            }
                         } else {
-                            System.out.print(" |");
+                            System.out.print(aide12[i][1] + "|");
                         }
+
                     }
-                }else{
-                    if (j == 4) {
-                        if (val == 1){
-                            System.out.print("                                              |" + aide[i][0] + "|");
-                        }else{
-                            System.out.print(" |                                              |" + aide[i][0] + "|");
-                        }
-                    } else {
-                        System.out.print(aide[i][1] + "|");
-                    }
-                    
                 }
+            System.out.println(" ");
             }
-        System.out.println(" ");
-        }
         
+        } else if (mode == 2){
+            for (int i = 0; i < 12; i++) {
+                val = 0;
+                for (int j = 0; j < 6; j++) {
+                    if (j < 4){
+                        if (grillemode2[i][j] != null) {
+                            if (j == 0) {
+                                if(grillemode2[i][j].Couleur == "rouge"){
+                                    System.out.print("      |\033[31mR\033[0m|");
+                                }else if(grillemode2[i][j].Couleur == "vert"){
+                                    System.out.print("      |V|");
+                                }else if(grillemode2[i][j].Couleur == "bleu"){
+                                    System.out.print("      |B|");
+                                }else if(grillemode2[i][j].Couleur == "jaune"){
+                                    System.out.print("      |J|");
+                                }
+                                val = 1;
+                            } else {
+                                if(grillemode2[i][j].Couleur == "rouge"){
+                                    System.out.print("\033[31mR\033[0m|");
+                                }else if(grillemode2[i][j].Couleur == "vert"){
+                                    System.out.print("V|");
+                                }else if(grillemode2[i][j].Couleur == "bleu"){
+                                    System.out.print("B|");
+                                }else if(grillemode2[i][j].Couleur == "jaune"){
+                                    System.out.print("J|");
+                                }
+                            }
+                        } else {
+                            if (j == 0) {
+                                System.out.print("      |");
+                            } else {
+                                System.out.print(" |");
+                            }
+                        }
+                    }else{
+                        if (j == 4) {
+                            if (val == 1){
+                                System.out.print("                                              |" + aide12[i][0] + "|");
+                            }else{
+                                System.out.print(" |                                              |" + aide12[i][0] + "|");
+                            }
+                        } else {
+                            System.out.print(aide12[i][1] + "|");
+                        }
+
+                    }
+                }
+            System.out.println(" ");
+            }
+            
+            
+        }else if (mode == 3)
+            for (int i = 0; i < 15; i++) {
+                val = 0;
+                for (int j = 0; j < 7; j++) {
+                    if (j < 5){
+                        if (grillemode3[i][j] != null) {
+                            if (j == 0) {
+                                if(grillemode3[i][j].Couleur == "rouge"){
+                                    System.out.print("      |\033[31mR\033[0m|");
+                                }else if(grillemode3[i][j].Couleur == "vert"){
+                                    System.out.print("      |V|");
+                                }else if(grillemode3[i][j].Couleur == "bleu"){
+                                    System.out.print("      |B|");
+                                }else if(grillemode3[i][j].Couleur == "jaune"){
+                                    System.out.print("      |J|");
+                                }else if(grillemode3[i][j].Couleur == "orange"){
+                                    System.out.print("      |O|");
+                                }else if(grillemode3[i][j].Couleur == "marron"){
+                                    System.out.print("      |M|");
+                                }
+                                val = 1;
+                            } else {
+                                if(grillemode3[i][j].Couleur == "rouge"){
+                                    System.out.print("\033[31mR\033[0m|");
+                                }else if(grillemode3[i][j].Couleur == "vert"){
+                                    System.out.print("V|");
+                                }else if(grillemode3[i][j].Couleur == "bleu"){
+                                    System.out.print("B|");
+                                }else if(grillemode3[i][j].Couleur == "jaune"){
+                                    System.out.print("J|");
+                                }else if(grillemode3[i][j].Couleur == "orange"){
+                                    System.out.print("O|");
+                                }else if(grillemode3[i][j].Couleur == "marron"){
+                                    System.out.print("M|");
+                                }
+                            }
+                            
+                        } else {
+                            if (j == 0) {
+                                System.out.print("      |");
+                            } else {
+                                System.out.print(" |");
+                            }
+                        }
+                    }else{
+                        if (j == 4) {
+                            if (val == 1){
+                                System.out.print("                                              |" + aide3[i][0] + "|");
+                            }else{
+                                System.out.print(" |                                              |" + aide3[i][0] + "|");
+                            }
+                        } else {
+                            System.out.print(aide3[i][1] + "|");
+                        }
+
+                    }
+                }
+            System.out.println(" ");
+            }
+            
+                
+        }
     }
         
 
