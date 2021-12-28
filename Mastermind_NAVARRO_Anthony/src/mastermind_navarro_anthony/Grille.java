@@ -129,43 +129,118 @@ public class Grille {
         
     }
     
-    public int[] verifiercombi(int l) {
+    public int[] verifiercombi(int l, int mode) {
         int nbR = 0; // nombre rouge final
         int nbB = 0;  // nombre blanc final
-        boolean Check[] = new boolean[4];
-
-        for (int i = 0; i < 4; i++) {
-            if (grille[l][i].Couleur == combi[i]) {
-                nbR += 1;
-                Check[i] = true;
-            }
+        
+        if (mode == 1){ // On crée un tableau qui va nous permettre de vérifier les pions bien placés puis ceux mal placés mais bien présents
+            boolean Check[] = new boolean[3];
+        } else if (mode == 2){
+            boolean Check[] = new boolean[4];
+        } else {
+            boolean Check[] = new boolean[5];    
         }
+        
+        if (mode == 1){
+            for (int i = 0; i < 3; i++) {
+                if (grillemode1[l][i].Couleur == combi1[i]) {
+                    nbR += 1;
+                    Check[i] = true;
+                }
+            }
 
-        for (int j = 0; j < 4; j++) {
-            for (int k = 0; k < 4; k++) {
-                if (grille[l][j].Couleur != combi[j] && Check[k] == false && grille[l][k].Couleur == combi[j]) {
-                    nbB += 1;
-                    Check[k] = true;
-                    break;
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < 3; k++) {
+                    if (grillemode1[l][j].Couleur != combi1[j] && Check[k] == false && grillemode1[l][k].Couleur == combi1[j]) {
+                        nbB += 1;
+                        Check[k] = true;
+                        break;
+                    }
+
                 }
 
             }
 
-        }
-        
-        for (int n = 0; n < 2; n++){
-            if (n == 0){
-                aide[l][n] = nbR;
-            }else{
-                aide[l][n] = nbB;
+            for (int n = 0; n < 2; n++){
+                if (n == 0){
+                    aide[l][n] = nbR;
+                }else{
+                    aide[l][n] = nbB;
+                }
             }
+
+            
+    
+            
+            
+        }else if (mode == 2){
+            for (int i = 0; i < 4; i++) {
+                if (grillemode2[l][i].Couleur == combi2[i]) {
+                    nbR += 1;
+                    Check[i] = true;
+                }
+            }
+
+            for (int j = 0; j < 4; j++) {
+                for (int k = 0; k < 4; k++) {
+                    if (grillemode2[l][j].Couleur != combi2[j] && Check[k] == false && grillemode2[l][k].Couleur == combi2[j]) {
+                        nbB += 1;
+                        Check[k] = true;
+                        break;
+                    }
+
+                }
+
+            }
+
+            for (int n = 0; n < 2; n++){
+                if (n == 0){
+                    aide[l][n] = nbR;
+                }else{
+                    aide[l][n] = nbB;
+                }
+            }
+
+            
+            
+            
+            
+        }else if (mode == 3){
+            for (int i = 0; i < 5; i++) {
+                if (grillemode3[l][i].Couleur == combi3[i]) {
+                    nbR += 1;
+                    Check[i] = true;
+                }
+            }
+
+            for (int j = 0; j < 5; j++) {
+                for (int k = 0; k < 5; k++) {
+                    if (grillemode3[l][j].Couleur != combi3[j] && Check[k] == false && grillemode3[l][k].Couleur == combi3[j]) {
+                        nbB += 1;
+                        Check[k] = true;
+                        break;
+                    }
+
+                }
+
+            }
+
+            for (int n = 0; n < 2; n++){
+                if (n == 0){
+                    aide[l][n] = nbR;
+                }else{
+                    aide[l][n] = nbB;
+                }
+            }
+
+            
+            
         }
         
         int [] valeursRB = {nbR, nbB}; // Comme je ne peux pas retourner deux int, je retourne un tableau contenant mes deux valeurs avec le nombre de rouge en premier.
-        
-        return valeursRB;
-    } 
-        
+
+            return valeursRB;
+    }  
      
     
     
@@ -236,15 +311,4 @@ public class Grille {
         
     }
         
-        
-        
-    public void verifcombi(){
-        
-    }
-    
-    public void ajoutercouleur(){
-        
-    }
-    
-}
 
