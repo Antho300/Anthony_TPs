@@ -84,16 +84,19 @@ public class Partie {
                     }    
                     
                     if (valcouleur == 1){
-                        Boule b;
+                        Boule b = new Boule("rouge");
                         grillejeu.ajouterboule(b, i, j);
-                        grillejeu.grille[i][j].Couleur = "rouge";
                     }else if (valcouleur == 2){
-                        grillejeu.grille[i][j].Couleur = "jaune";
+                        Boule b = new Boule("jaune");
+                        grillejeu.ajouterboule(b, i, j);
                     }else if (valcouleur == 3){
-                        grillejeu.grille[i][j].Couleur = "bleu";
+                        Boule b = new Boule("bleu");
+                        grillejeu.ajouterboule(b, i, j);
                     }else if (valcouleur == 4){
-                        grillejeu.grille[i][j].Couleur = "vert";
+                        Boule b = new Boule("vert");
+                        grillejeu.ajouterboule(b, i, j);
                     }
+
                     niemecouleur += 1;
                 
                 }
