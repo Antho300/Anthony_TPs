@@ -100,31 +100,54 @@ public class Grille {
             valeursRB1 [l] = val[l];
         }
          */
+        int val = 0;
 
         System.out.print("Voici la grille de jeu :                       ");
         System.out.print("Voici les indications de l'ordinateur :");
         System.out.println(" ");
-        System.out.println("________________________                       __________________________________");
+        System.out.println("________________________                       _______________________________________");
 
         for (int i = 0; i < 12; i++) {
+            val = 0;
             for (int j = 0; j < 6; j++) {
                 if (j < 4){
                     if (grille[i][j] != null) {
                         if (j == 0) {
-                            System.out.print("|" + grille[i][j].Couleur + "|");
+                            if(grille[i][j].Couleur == "rouge"){
+                                System.out.print("      |\033[31mR\033[0m|");
+                            }else if(grille[i][j].Couleur == "vert"){
+                                System.out.print("      |V|");
+                            }else if(grille[i][j].Couleur == "bleu"){
+                                System.out.print("      |B|");
+                            }else if(grille[i][j].Couleur == "jaune"){
+                                System.out.print("      |J|");
+                            }
+                            val = 1;
                         } else {
-                            System.out.print(grille[i][j].Couleur + "|");
+                            if(grille[i][j].Couleur == "rouge"){
+                                System.out.print("\033[31mR\033[0m|");
+                            }else if(grille[i][j].Couleur == "vert"){
+                                System.out.print("V|");
+                            }else if(grille[i][j].Couleur == "bleu"){
+                                System.out.print("B|");
+                            }else if(grille[i][j].Couleur == "jaune"){
+                                System.out.print("J|");
+                            }
                         }
                     } else {
                         if (j == 0) {
-                            System.out.print("|");
+                            System.out.print("      |");
                         } else {
-                            System.out.print("     |");
+                            System.out.print(" |");
                         }
                     }
                 }else{
                     if (j == 4) {
-                        System.out.print("                           |" + aide[i][0] + "|");
+                        if (val == 1){
+                            System.out.print("                                              |" + aide[i][0] + "|");
+                        }else{
+                            System.out.print(" |                                              |" + aide[i][0] + "|");
+                        }
                     } else {
                         System.out.print(aide[i][1] + "|");
                     }
