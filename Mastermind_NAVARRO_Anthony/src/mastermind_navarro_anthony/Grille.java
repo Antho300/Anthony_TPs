@@ -104,30 +104,31 @@ public class Grille {
         System.out.print("Voici la grille de jeu :                       ");
         System.out.print("Voici les indications de l'ordinateur :");
         System.out.println(" ");
-        System.out.println("________________________                       ____________________");
+        System.out.println("________________________                       __________________________________");
 
         for (int i = 0; i < 12; i++) {
             for (int j = 0; j < 6; j++) {
-                if (grille[i][j] != null) {
-                    if (j == 0) {
-                        System.out.print("|" + grille[i][j].Couleur + "|");
+                if (j < 4){
+                    if (grille[i][j] != null) {
+                        if (j == 0) {
+                            System.out.print("|" + grille[i][j].Couleur + "|");
+                        } else {
+                            System.out.print(grille[i][j].Couleur + "|");
+                        }
                     } else {
-                        System.out.print(grille[i][j].Couleur + "|");
+                        if (j == 0) {
+                            System.out.print("|");
+                        } else {
+                            System.out.print("     |");
+                        }
                     }
-                } else {
-                    if (j == 0) {
-                        System.out.print("|");
+                }else{
+                    if (j == 4) {
+                        System.out.print("                           |" + aide[i][0] + "|");
                     } else {
-                        System.out.print("        |");
+                        System.out.print(aide[i][1] + "|");
                     }
-                }
-                
-                if (j > 4) {
-                    if (j == 5) {
-                        System.out.print("           |" + aide[i][j] + "|");
-                    } else {
-                        System.out.print(aide[i][j] + "|");
-                    }
+                    
                 }
             }
         System.out.println(" ");
