@@ -255,7 +255,7 @@ public class Grille {
             for (int i = 0; i < 12; i++) {
                 val = 0;
                 for (int j = 0; j < 5; j++) {
-                    if (j < 4){
+                    if (j < 3){
                         if (grillemode1[i][j] != null) {
                             if (j == 0) {
                                 if(grillemode1[i][j].Couleur == "rouge"){
@@ -287,7 +287,7 @@ public class Grille {
                             }
                         }
                     }else{
-                        if (j == 4) {
+                        if (j == 3) {
                             if (val == 1){
                                 System.out.print("                                              |" + aide12[i][0] + "|");
                             }else{
@@ -399,7 +399,7 @@ public class Grille {
                             }
                         }
                     }else{
-                        if (j == 4) {
+                        if (j == 5) {
                             if (val == 1){
                                 System.out.print("                                              |" + aide3[i][0] + "|");
                             }else{
