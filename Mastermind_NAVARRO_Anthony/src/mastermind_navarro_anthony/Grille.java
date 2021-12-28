@@ -8,18 +8,38 @@ import java.util.Random;
  * @author Anthony
  */
 public class Grille {
-    Boule grille [][] = new Boule[12][4]; // initialise notre grille
-    String combi [] = new String[4]; // initialise une ligne pour la combinaison
-    String listecoul[]={"jaune","rouge","bleu","vert"};
-    int aide[][] = new int [12][2];
+    Boule grillemode1 [][] = new Boule[12][3]; // initialise notre grille du mode 1
+    Boule grillemode2 [][] = new Boule[12][4]; // initialise notre grille du mode 2
+    Boule grillemode3 [][] = new Boule[15][5]; // initialise notre grille du mode 3
+    String combi1 [] = new String[3]; // initialise une ligne pour la combinaison mode 1
+    String combi2 [] = new String[4]; // initialise une ligne pour la combinaison mode 2
+    String combi3 [] = new String[5]; // initialise une ligne pour la combinaison mode 3
+    String listecoul12[]={"jaune","rouge","bleu","vert"}; // couleurs mode 1 et 2
+    String listecoul3[]={"jaune","rouge","bleu","vert"}; //couleurs mode 3
+    int aide[][] = new int [12][2]; // grille qui nous donnera le nombre de jetons correctement^placée et le nombre de jetons de la bonne couleur présents
     
     
-    public Grille() { // constructeur qui remplit la grille avec des boules null = cases vides
-        for (int i=0; i<12; i++) {
-            for (int j=0; j<4; j++) {
-                grille[i][j] = null;
+    public Grille(int mode) { // constructeur qui remplit la grille avec des boules null = cases vides
+        if (mode == 1){
+            for (int i=0; i<12; i++) {
+                for (int j=0; j<3; j++) {
+                    grillemode1[i][j] = null;
+                }
+            }
+        }else if (mode == 2){
+            for (int i=0; i<12; i++) {
+                for (int j=0; j<4; j++) {
+                    grillemode2[i][j] = null;
+                }
+            }
+        }else if (mode == 3){
+            for (int i=0; i<15; i++) {
+                for (int j=0; j<5; j++) {
+                    grillemode3[i][j] = null;
+                }
             }
         }
+        
     }
     
     public void creercombinaison(){ // permet de creer la combinaison aléatoire a trouver 

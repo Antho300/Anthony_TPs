@@ -58,6 +58,21 @@ public class Partie {
         int nbRB [] = new int[2];
         Scanner scan = new Scanner(System.in);
         
+        int nbcolonne = 0;// nbcolonne sera le nombre de colonnes associées à la grille de jeu correspondsante au mode choisi par l'utilisateur
+        int nbligne = 0; // pareil que nbcolonne mais correspondant au nombre de tours total
+        if (mode == 1){
+            nbcolonne = 3;
+            nbligne = 12;
+        }else if (mode == 2){
+            nbcolonne = 4;
+            nbligne = 12;
+        }else{
+            nbcolonne = 5;
+            nbligne = 15;
+        }
+        
+        
+        
         System.out.println("Allons ordinateur, initialise une suite de couleurs pour voir de quoi " + nomjoueur + " est capable");
         grillejeu.creercombinaison(); // La liste de référence est créée
         grillejeu.affichercombinaison();
