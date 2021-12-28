@@ -15,7 +15,7 @@ public class Grille {
     String combi2 [] = new String[4]; // initialise une ligne pour la combinaison mode 2
     String combi3 [] = new String[5]; // initialise une ligne pour la combinaison mode 3
     String listecoul12[]={"jaune","rouge","bleu","vert"}; // couleurs mode 1 et 2
-    String listecoul3[]={"jaune","rouge","bleu","vert"}; //couleurs mode 3
+    String listecoul3[]={"jaune","rouge","bleu","vert","orange","marron"}; //couleurs mode 3
     int aide[][] = new int [12][2]; // grille qui nous donnera le nombre de jetons correctement^placée et le nombre de jetons de la bonne couleur présents
     
     
@@ -42,34 +42,91 @@ public class Grille {
         
     }
     
-    public void creercombinaison(){ // permet de creer la combinaison aléatoire a trouver 
+    public void creercombinaison(int mode){ // permet de creer la combinaison aléatoire a trouver 
         Random nb = new Random();
-        for(int i= 0 ; i<4; i++){
-            int alea = nb.nextInt(4);
-            combi[i] = listecoul[alea];
-        }
-    }
-    
-    public void ajouterboule(Boule b1, int l, int c){
-        grille[l][c] = b1;
-    }
-    
-    public void retirerboule(int l, int c){
-        grille[l][c] = null;
-    }
-    
-    public void affichercombinaison(){
-        for(int i= 0 ; i<4; i++){
-            if(combi[i] == "jaune"){
-                System.out.print("J ");
-            }else if(combi[i] == "rouge"){
-                System.out.print("R ");
-            }else if(combi[i] == "bleu"){
-                System.out.print("B ");
-            }else if(combi[i] == "vert"){
-                System.out.print("Ve ");
+        if (mode == 1){
+            for(int i = 0 ; i<3; i++){
+                int alea = nb.nextInt(3);
+                combi1[i] = listecoul12[alea];
+            }
+        }else if (mode == 2){
+            for(int i = 0 ; i<4; i++){
+                int alea = nb.nextInt(4);
+                combi2[i] = listecoul12[alea];
+            }
+        }else if (mode == 3){
+            for(int i = 0 ; i<5; i++){
+                int alea = nb.nextInt(5);
+                combi3[i] = listecoul3[alea];
             }
         }
+            
+        
+    }
+    
+    public void ajouterboule(Boule b1, int l, int c, int mode){
+        if (mode == 1){
+            grillemode1[l][c] = b1;
+        }else if (mode == 2){
+            grillemode2[l][c] = b1;
+        }else if (mode == 3){
+            grillemode3[l][c] = b1;
+        }
+    }
+    
+    public void retirerboule(int l, int c, int mode){
+        if (mode == 1){
+            grillemode1[l][c] = null;
+        }else if (mode == 2){
+            grillemode2[l][c] = null;
+        }else if (mode == 3){
+            grillemode3[l][c] = null;
+        }
+    }
+    
+    public void affichercombinaison(int mode){
+        if (mode == 1){
+            for(int i= 0 ; i<3; i++){
+                if(combi1[i] == "jaune"){
+                    System.out.print("J ");
+                }else if(combi1[i] == "rouge"){
+                    System.out.print("R ");
+                }else if(combi1[i] == "bleu"){
+                    System.out.print("B ");
+                }else if(combi1[i] == "vert"){
+                    System.out.print("V ");
+                }
+            }
+        }else if (mode == 2){
+            for(int i= 0 ; i<4; i++){
+                if(combi2[i] == "jaune"){
+                    System.out.print("J ");
+                }else if(combi2[i] == "rouge"){
+                    System.out.print("R ");
+                }else if(combi2[i] == "bleu"){
+                    System.out.print("B ");
+                }else if(combi2[i] == "vert"){
+                    System.out.print("V ");
+                }
+            }
+        }else if (mode == 3){
+            for(int i= 0 ; i<5; i++){
+                if(combi3[i] == "jaune"){
+                    System.out.print("J ");
+                }else if(combi3[i] == "rouge"){
+                    System.out.print("R ");
+                }else if(combi3[i] == "bleu"){
+                    System.out.print("B ");
+                }else if(combi3[i] == "vert"){
+                    System.out.print("V ");
+                }else if(combi3[i] == "orange"){
+                    System.out.print("O ");
+                }else if(combi3[i] == "marron"){
+                    System.out.print("M ");
+                }
+            }
+        }
+        
     }
     
     public int[] verifiercombi(int l) {
