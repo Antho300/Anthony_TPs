@@ -13,7 +13,7 @@ public class Partie {
     int mode = 0;
     
     void initialiserpartie(){
-        grillejeu = new Grille();
+        
         
         Scanner sc = new Scanner(System.in);
         int bon = 0;
@@ -47,6 +47,9 @@ public class Partie {
         
         }
     
+        
+        grillejeu = new Grille(mode);
+        
     }
     
     public void debuterpartie (){
@@ -74,8 +77,8 @@ public class Partie {
         
         
         System.out.println("Allons ordinateur, initialise une suite de couleurs pour voir de quoi " + nomjoueur + " est capable");
-        grillejeu.creercombinaison(); // La liste de référence est créée
-        grillejeu.affichercombinaison();
+        grillejeu.creercombinaison(mode); // La liste de référence est créée
+        grillejeu.affichercombinaison(mode);
         
         while(finpartie != 2){
             
@@ -100,16 +103,16 @@ public class Partie {
                     
                     if (valcouleur == 1){
                         Boule b = new Boule("rouge");
-                        grillejeu.ajouterboule(b, i, j);
+                        grillejeu.ajouterboule(b, i, j, mode);
                     }else if (valcouleur == 2){
                         Boule b = new Boule("jaune");
-                        grillejeu.ajouterboule(b, i, j);
+                        grillejeu.ajouterboule(b, i, j, mode);
                     }else if (valcouleur == 3){
                         Boule b = new Boule("bleu");
-                        grillejeu.ajouterboule(b, i, j);
+                        grillejeu.ajouterboule(b, i, j, mode);
                     }else if (valcouleur == 4){
                         Boule b = new Boule("vert");
-                        grillejeu.ajouterboule(b, i, j);
+                        grillejeu.ajouterboule(b, i, j, mode);
                     }
 
                     niemecouleur += 1;
@@ -118,8 +121,8 @@ public class Partie {
                
                System.out.println("Voyons ce qu'il en est :");
                
-               nbRB = grillejeu.verifiercombi(i);
-               grillejeu.affichergrilleetindic();
+               nbRB = grillejeu.verifiercombi(i, mode);
+               grillejeu.affichergrilleetindic(mode);
                
                if (nbRB[0] == 4){
                    System.out.println("Vous avez gagné");
