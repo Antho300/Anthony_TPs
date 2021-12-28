@@ -109,9 +109,11 @@ public class Partie {
                if (nbRB[0] == 4){
                    System.out.println("Vous avez gagné");
                    finpartie = 2;
+                   break;
                }else if (i == 12 && nbRB[0] != 4){
                    System.out.println("Vous avez perdu.");
                    finpartie = 2;
+                   break;
                }else{
                    System.out.println("Vous y êtes presque, continuez !");
                }
