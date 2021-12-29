@@ -1,2 +1,2 @@
 an
-Ce joueur a gagné en 2 tours.
+Ce joueur a gagné en 4 tours.

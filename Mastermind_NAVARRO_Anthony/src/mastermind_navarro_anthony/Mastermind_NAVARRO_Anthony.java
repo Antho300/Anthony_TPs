@@ -14,8 +14,9 @@ public class Mastermind_NAVARRO_Anthony {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException {
-     Partie partie = new Partie();
      
+        
+     Partie partie = new Partie();
      partie.initialiserpartie();
      partie.debuterpartie();
    

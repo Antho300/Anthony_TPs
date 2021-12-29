@@ -22,6 +22,7 @@ public class Partie {
         int modetemporaire = 0;
         System.out.println("___________________MASTERMIND by Matthieu and Anthony___________________");
         System.out.println("Bonjour !\nBienvenue sur le Mastermind imaginé par Matthieu et Anthony");
+        System.out.println("             /- Vous avez 4 minutes pour gagner-/               ");
         System.out.println("Entrez votre nom :");
         nomjoueur = sc.next();
         System.out.println(" ");
@@ -66,6 +67,13 @@ public class Partie {
         
         int nbcolonne = 0;// nbcolonne sera le nombre de colonnes associées à la grille de jeu correspondsante au mode choisi par l'utilisateur
         int nbligne = 0; // pareil que nbcolonne mais correspondant au nombre de tours total
+        
+        long timer = System.currentTimeMillis(); //On récupère le temps d'exécution du programme
+        int delay = 5000;
+    
+        
+        
+        
         if (mode == 1){
             nbcolonne = 3;
             nbligne = 12;
@@ -78,6 +86,7 @@ public class Partie {
         }
         
         
+    
         
         System.out.println("Allons ordinateur, initialise une suite de couleurs pour voir de quoi " + nomjoueur + " est capable");
         grillejeu.creercombinaison(mode); // La liste de référence est créée
@@ -87,6 +96,14 @@ public class Partie {
             
             if (mode == 1){
                 for (int i = 0; i < 12; i ++){ // Début des 12 boucles pour trouver la ligne de l'ordinateur.
+                    if (System.currentTimeMillis() - timer > delay){
+                        System.out.println(" ");
+                        System.out.println("         /-Temps écoulé-/       ");
+                        System.out.println("Vous avez perdu.");
+                        
+                        finpartie = 2;
+                        break;
+                    }
                     niemecouleur = 1;
                     nbtour += 1;
                     for (int j = 0; j < 3; j++){
@@ -154,6 +171,15 @@ public class Partie {
                 }
             }else if (mode == 2){
               for (int i = 0; i < 12; i ++){ // Début des 12 boucles pour trouver la ligne de l'ordinateur.
+                  if (System.currentTimeMillis() - timer > delay){
+                        System.out.println(" ");
+                        System.out.println("         /-Temps écoulé-/       ");
+                        System.out.println("Vous avez perdu.");
+                        
+                        finpartie = 2;
+                        break;
+                    }
+                  
                     niemecouleur = 1;
                     nbtour += 1;
                     for (int j = 0; j < 4; j++){
@@ -221,6 +247,15 @@ public class Partie {
                 }   
             } else if (mode == 3){
                 for (int i = 0; i < 15; i ++){ // Début des 12 boucles pour trouver la ligne de l'ordinateur.
+                    if (System.currentTimeMillis() - timer > delay){
+                        System.out.println(" ");
+                        System.out.println("         /-Temps écoulé-/       ");
+                        System.out.println("Vous avez perdu.");
+                        
+                        finpartie = 2;
+                        break;
+                    }
+                    
                     niemecouleur = 1;
                     nbtour += 1;
                     for (int j = 0; j < 5; j++){
