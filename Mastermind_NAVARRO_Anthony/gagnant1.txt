@@ -1,0 +1,2 @@
+gagnant1
+Ce joueur a gagné en 3 tours.

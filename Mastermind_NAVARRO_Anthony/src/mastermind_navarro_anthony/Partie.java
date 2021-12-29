@@ -1,6 +1,8 @@
 
 package mastermind_navarro_anthony;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -52,7 +54,7 @@ public class Partie {
         
     }
     
-    public void debuterpartie (){
+    public void debuterpartie () throws FileNotFoundException{
         int finpartie = 1; // Pour arrêter la partie finpartie = 2.
         int valcouleur = 0;
         String couleur;
@@ -60,6 +62,7 @@ public class Partie {
         int bon = 0;
         int nbRB [] = new int[2];
         Scanner scan = new Scanner(System.in);
+        int nbtour = 0; // comptabilise le nombre de tours avant victoire pour enregistrer le score
         
         int nbcolonne = 0;// nbcolonne sera le nombre de colonnes associées à la grille de jeu correspondsante au mode choisi par l'utilisateur
         int nbligne = 0; // pareil que nbcolonne mais correspondant au nombre de tours total
@@ -85,6 +88,7 @@ public class Partie {
             if (mode == 1){
                 for (int i = 0; i < 12; i ++){ // Début des 12 boucles pour trouver la ligne de l'ordinateur.
                     niemecouleur = 1;
+                    nbtour += 1;
                     for (int j = 0; j < 3; j++){
                         bon = 0;
                         while(bon != 2){ // l'utilisateur doit donner une valeur correcte
@@ -133,6 +137,10 @@ public class Partie {
 
                    if (nbRB[0] == 3){
                        System.out.println("Vous avez gagné");
+                       PrintWriter writer = new PrintWriter(nomjoueur + ".txt");
+                       writer.println(nomjoueur);
+                       writer.println("Ce joueur a gagné en " + nbtour + " tours." );
+                       writer.close();
                        finpartie = 2;
                        break;
                    }else if (i == 11 && nbRB[0] != 3){
@@ -147,6 +155,7 @@ public class Partie {
             }else if (mode == 2){
               for (int i = 0; i < 12; i ++){ // Début des 12 boucles pour trouver la ligne de l'ordinateur.
                     niemecouleur = 1;
+                    nbtour += 1;
                     for (int j = 0; j < 4; j++){
                         bon = 0;
                         while(bon != 2){ // l'utilisateur doit donner une valeur correcte
@@ -195,6 +204,10 @@ public class Partie {
 
                    if (nbRB[0] == 4){
                        System.out.println("Vous avez gagné");
+                       PrintWriter writer = new PrintWriter(nomjoueur + ".txt");
+                       writer.println(nomjoueur);
+                       writer.println("Ce joueur a gagné en " + nbtour + " tours." );
+                       writer.close();
                        finpartie = 2;
                        break;
                    }else if (i == 11 && nbRB[0] != 4){
@@ -209,6 +222,7 @@ public class Partie {
             } else if (mode == 3){
                 for (int i = 0; i < 15; i ++){ // Début des 12 boucles pour trouver la ligne de l'ordinateur.
                     niemecouleur = 1;
+                    nbtour += 1;
                     for (int j = 0; j < 5; j++){
                         bon = 0;
                         while(bon != 2){ // l'utilisateur doit donner une valeur correcte
@@ -263,6 +277,10 @@ public class Partie {
 
                    if (nbRB[0] == 5){
                        System.out.println("Vous avez gagné");
+                       PrintWriter writer = new PrintWriter(nomjoueur + ".txt");
+                       writer.println(nomjoueur);
+                       writer.println("Ce joueur a gagné en " + nbtour + " tours." );
+                       writer.close();
                        finpartie = 2;
                        break;
                    }else if (i == 14 && nbRB[0] != 5){

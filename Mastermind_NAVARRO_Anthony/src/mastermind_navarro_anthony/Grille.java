@@ -306,7 +306,7 @@ public class Grille {
             for (int i = 0; i < 12; i++) {
                 val = 0;
                 for (int j = 0; j < 6; j++) {
-                    if (j < 5){
+                    if (j < 4){
                         if (grillemode2[i][j] != null) {
                             if (j == 0) {
                                 if(grillemode2[i][j].Couleur == "rouge"){
