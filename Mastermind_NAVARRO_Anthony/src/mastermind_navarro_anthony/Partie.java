@@ -69,7 +69,7 @@ public class Partie {
         int nbligne = 0; // pareil que nbcolonne mais correspondant au nombre de tours total
         
         long timer = System.currentTimeMillis(); //On récupère le temps d'exécution du programme
-        int delay = 5000;
+        int delay = 240000;
     
         
         
