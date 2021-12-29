@@ -104,6 +104,7 @@ public class Partie {
                         finpartie = 2;
                         break;
                     }
+                    
                     niemecouleur = 1;
                     nbtour += 1;
                     for (int j = 0; j < 3; j++){
