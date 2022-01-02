@@ -103,6 +103,8 @@ public class Partie {
                         
                         finpartie = 2;
                         break;
+                    }else{
+                        System.out.println("        /- Il vous reste " + (240 - ((System.currentTimeMillis() - timer) * 0.001)) + " s. -/");
                     }
                     
                     niemecouleur = 1;
@@ -179,6 +181,8 @@ public class Partie {
                         
                         finpartie = 2;
                         break;
+                    }else{
+                        System.out.println("        /- Il vous reste " + (240 - ((System.currentTimeMillis() - timer) * 0.001)) + " s. -/");
                     }
                   
                     niemecouleur = 1;
@@ -255,6 +259,8 @@ public class Partie {
                         
                         finpartie = 2;
                         break;
+                    }else{
+                        System.out.println("        /- Il vous reste " + (240 - ((System.currentTimeMillis() - timer) * 0.001)) + " s. -/");
                     }
                     
                     niemecouleur = 1;
